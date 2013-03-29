@@ -1,0 +1,77 @@
+# .conkyrc - Edited from various examples compiled from the Web
+# by MaxKh
+
+# --- Window Layout & Options --- #
+
+own_window yes
+own_window_class Conky
+own_window_type desktop
+own_window_type normal
+own_window_argb_visual yes
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+#background yes
+
+double_buffer yes
+use_spacer right
+use_xft yes
+#xftalpha 1
+alignment top_left
+gap_x 1650
+gap_y 670
+
+# --- Colours, Sizes, Fonts & Margins --- #
+update_interval 1.0
+maximum_width 250
+minimum_size 300 400
+
+stippled_borders 3
+#border_margin 8
+border_width 10
+default_color $template2
+
+# --- Text --- #
+draw_outline no
+draw_borders no
+uppercase no
+draw_shades no
+override_utf8_locale yes
+text_buffer_size 1024
+
+#lua_load ~/1.lua
+#lua_draw_hook_pre clock_rings
+
+#main color
+template0 1793d1
+template5 1793d1
+#second color
+template1 777777
+#third color
+template2 777777
+
+cpu_avg_samples 3
+
+TEXT
+${font CourierNew:size=14:weight=bold}${color $template0}CPU Load ${hr 2}$color$font
+${font CourierNew:size=10:weight=bold}${color $template1}Name${alignr}ID  ${alignr}Usage$color
+${color $template2}1. ${top name 1} ${alignr}${top pid 1} ${alignr}${top cpu 1}
+2. ${top name 2} ${alignr}${top pid 2} ${alignr}${top cpu 2}
+3. ${top name 3} ${alignr}${top pid 3} ${alignr}${top cpu 3}
+4. ${top name 4} ${alignr}${top pid 4} ${alignr}${top cpu 4}
+5. ${top name 5} ${alignr}${top pid 5} ${alignr}${top cpu 5}
+$color
+
+${font CourierNew:size=14:weight=bold}${color $template0}Memory Load ${hr 2}$color$font
+${font CourierNew:size=10:weight=bold}${color $template1}Name${alignr}ID  ${alignr}Usage$color
+${color $template2}1. ${top_mem name 1} ${alignr}${top_mem pid 1} ${alignr}${top_mem mem 1}
+2. ${top_mem name 2} ${alignr}${top_mem pid 2} ${alignr}${top_mem mem 2}
+3. ${top_mem name 3} ${alignr}${top_mem pid 3} ${alignr}${top_mem mem 3}
+4. ${top_mem name 4} ${alignr}${top_mem pid 4} ${alignr}${top_mem mem 4}
+5. ${top_mem name 5} ${alignr}${top_mem pid 5} ${alignr}${top_mem mem 5}
+$color
+
+${font CourierNew:size=14:weight=bold}${color $template0}RAM and SWAP Usage ${hr 2}$color$font
+${font CourierNew:size=10:weight=bold}${color $template1}RAM$color ${color $template2}${memperc}% $alignr${mem /} / ${memmax /}$color
+${color $template5}${membar 3.180}
+${color $template1}SWAP$color ${color $template2}${swapperc}% $alignr${swap /} / ${swapmax /}$color
+${color $template5}${swapbar 3.180}$font

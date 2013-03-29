@@ -1,0 +1,82 @@
+# .conkyrc - Edited from various examples compiled from the Web
+# by MaxKh
+
+# --- Window Layout & Options --- #
+
+own_window yes
+own_window_class Conky
+own_window_type desktop
+own_window_type normal
+own_window_argb_visual yes
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+#background yes
+
+double_buffer yes
+use_spacer right
+use_xft yes
+#xftalpha 1
+alignment top_left
+gap_x 1370
+gap_y 50
+
+
+# --- Colours, Sizes, Fonts & Margins --- #
+update_interval 1.0
+minimum_size 300 280
+maximum_width 250
+stippled_borders 3
+#border_margin 8
+border_width 10
+default_color white
+
+# --- Text --- #
+draw_outline no
+draw_borders no
+uppercase no
+draw_shades no
+override_utf8_locale yes
+text_buffer_size 3048
+
+#main color
+template0 1793d1
+template5 1793d1
+#second color
+template1 777777
+#third color
+template2 777777
+
+color1 777777
+color2 1793d1
+color3 1793d1
+
+TEXT
+#${pre_exec /home/khaberev/startup/paconky.py /home/khaberev/.cache/pacman > /home/khaberev/.cache/packets}
+${font CourierNew:size=14:weight=bold}${color $template0}HDD Space Usage ${hr 2}$color$font
+${font CourierNew:size=10:weight=bold}${color $template1}/root$color ${color $template2}$alignr${fs_used_perc /}% Used
+${fs_used /} / ${fs_size /}$color
+${color $template5}${fs_bar 3 /}
+${if_mounted /mainfiles}${color $template1}/mainfiles$color ${color $template2}$alignr${fs_used_perc /mainfiles}% Used
+${fs_used /mainfiles} / ${fs_size /mainfiles}$color
+${color $template5}${fs_bar 3 /mainfiles}$else
+${color $template1}/mainfiles$color ${color $template2}$alignr Not Mounted
+$endif
+${if_mounted /deb_workdir}${color $template1}/deb_workdir$color ${color $template2}$alignr${fs_used_perc /deb_workdir}% Used
+${fs_used /deb_workdir} / ${fs_size /deb_workdir}$color
+${color $template5}${fs_bar 3 /deb_workdir}$else
+${color $template1}/deb_workdir$color ${color $template2}$alignr Not Mounted
+$endif$font
+
+${font CourierNew:size=14:weight=bold}${color $template0}Disk Load ${hr 2}$color$font
+${font CourierNew:size=10:weight=bold}${color $template2}Read ${diskio_read sda} ${alignc}    Write ${diskio_write sda}$color
+${color $template1}${diskiograph_read sda 25,115 000000 $template5} $alignr${diskiograph_write sda 25,115 000000 $template5}$font
+
+${font CourierNew:size=14:weight=bold}${color $template0}Ethernet Activity ${hr 2}$color$font
+${font CourierNew:size=10:weight=bold}${color $template2}In ${totaldown eth1} ${alignc}      Out ${totalup eth1}
+${downspeed eth1} ${alignc}         ${upspeed eth1}$color
+${color $template1}${downspeedgraph eth1 25,115 000000 $template5} $alignr${upspeedgraph eth1 25,115 000000 $template5}$font
+
+${font CourierNew:size=14:weight=bold}${color $template0}Available updates ${hr 2}$color$font
+${font CourierNew:size=10:weight=bold}
+${execp /home/khaberev/startup/scroll.py}
+$font
