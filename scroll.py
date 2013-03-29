@@ -9,15 +9,19 @@ import os
 size = 37
 printed = 0
 
+home = os.path.expanduser("~")
+packets_path = os.path.join(home, ".cache/packets")
+step_path = os.path.join(home, ".cache/step")
+
 try:
-    f_pack = open("/home/khaberev/.cache/packets", "r")
+    f_pack = open(packets_path, "r")
 except:
-    if os.path.isfile("/home/khaberev/.cache/step"):
-        os.remove("/home/khaberev/.cache/step")
+    if os.path.isfile(step_path):
+        os.remove(step_path)
     exit()
 
 try:
-    f_step = open("/home/khaberev/.cache/step", "r")
+    f_step = open(step_path, "r")
     step = int(f_step.readline())
     f_step.close()
 except:
@@ -41,7 +45,7 @@ if step+size > num_packets and size < num_packets:
 
 step = 0 if (step == num_packets or size >= num_packets)  else step+1
 
-f_step = open("/home/khaberev/.cache/step", "w+")
+f_step = open(step_path, "w+")
 f_step.write(str(step))
 f_step.close()
 
