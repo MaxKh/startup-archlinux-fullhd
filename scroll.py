@@ -7,7 +7,7 @@ import os
 
 
 size = 37
-printed = 0
+buf = []
 
 home = os.path.expanduser("~")
 packets_path = os.path.join(home, ".cache/packets")
@@ -15,10 +15,12 @@ step_path = os.path.join(home, ".cache/step")
 
 try:
     f_pack = open(packets_path, "r")
+    packets = f_pack.readlines()
+    f_pack.close()
 except:
     if os.path.isfile(step_path):
         os.remove(step_path)
-    exit()
+    packets = []
 
 try:
     f_step = open(step_path, "r")
@@ -27,21 +29,16 @@ try:
 except:
     step = 0
 
-packets = f_pack.readlines()
-f_pack.close()
 num_packets = len(packets)
 
 if num_packets <= size:
     step = 0
 
-for p in packets[step:step+size]:
-    print(p, end = '')
-    printed += 1
+buf += packets[step:step+size]
+
 
 if step+size > num_packets and size < num_packets:
-    for p in packets[0:step+size-num_packets]:
-        print(p, end = '')
-        printed += 1
+    buf += packets[0:step+size-num_packets]
 
 step = 0 if (step == num_packets or size >= num_packets)  else step+1
 
@@ -49,6 +46,8 @@ f_step = open(step_path, "w+")
 f_step.write(str(step))
 f_step.close()
 
-while printed < size:
-    print("\n")
-    printed += 1
+if len(buf) < size:
+    buf += ["\n"]*(size-len(buf))
+
+for p in buf:
+    print(p, end = '')
