@@ -42,12 +42,12 @@ text_buffer_size 1024
 #lua_draw_hook_pre clock_rings
 
 #main color
-template0 1793d1
-template5 1793d1
+template0 64caff
+template5 64caff
 #second color
-template1 777777
+template1 aaaaaa
 #third color
-template2 777777
+template2 aaaaaa
 
 xftfont CourierNew:size=14:weight=bold
 cpu_avg_samples 3
