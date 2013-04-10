@@ -61,7 +61,7 @@ ${color $template0}IP${alignr}$color${color $template2}${addr eth1}$color$font
 ${font Play:size=14}${color $template0}CPU Info ${hr 2}$color$font
 ${font Play:size=10}${color $template1}${pre_exec cat /proc/cpuinfo | grep "model name" -m1 | cut -d":" -f2 | cut -d" " -f2- | awk '{print $1,$2}'}
 $alignr${pre_exec cat /proc/cpuinfo | grep "model name" -m1 | cut -d":" -f2 | cut -d" " -f2- | awk '{print $3,$4,$5,$7}'}$color$font
-${font CPlay:size=10}${color $template0}CPU Temp:${tab 40}${color $template1}${exec sensors | grep "CPU Temperature:" | awk '{print $3}'}
+${font Play:size=10}${color $template0}CPU Temp:${tab 40}${color $template1}${exec sensors | grep "CPU Temperature:" | awk '{print $3}'}
 ${color $template0}Fan Speed:${tab 40}${color $template1}${exec sensors | grep "CPU FAN Speed" | awk '{print $4}'} RPM
 
 ${color $template5}CPU 0
