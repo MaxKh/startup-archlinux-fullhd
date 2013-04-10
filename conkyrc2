@@ -17,12 +17,12 @@ use_spacer right
 use_xft yes
 #xftalpha 1
 alignment top_left
-gap_x 1000
+gap_x 1050
 gap_y 472
 
 # --- Colours, Sizes, Fonts & Margins --- #
 update_interval 1.0
-maximum_width 250
+maximum_width 200
 minimum_size 250 300
 
 stippled_borders 3
@@ -42,32 +42,32 @@ text_buffer_size 1024
 #lua_draw_hook_pre clock_rings
 
 #main color
-template0 1793d1
+template0 181a19
 template5 1793d1
 #second color
-template1 777777
+template1 cccccc
 #third color
-template2 777777
+template2 cccccc
 
 cpu_avg_samples 3
 
 TEXT
-${font CourierNew:size=14:weight=bold}${color $template0}CPU Load ${hr 2}$color$font
-${font CourierNew:size=10:weight=bold}${color $template1}Name${alignr}ID  ${alignr}Usage$color
-${color $template2}1. ${top name 1} ${alignr}${top pid 1} ${alignr}${top cpu 1}
-2. ${top name 2} ${alignr}${top pid 2} ${alignr}${top cpu 2}
-3. ${top name 3} ${alignr}${top pid 3} ${alignr}${top cpu 3}
+${font Play:size=14:bold}${color $template0}CPU Load ${hr 2}$color$font
+${font Play:size=10}${color $template5}Name${alignr}ID   ${alignr}Usage$color
+${color $template2}1. ${top name 1} ${alignr}${top pid 1}    ${alignr}${top cpu 1}
+2. ${top name 2} ${alignr}${top pid 2}    ${alignr}${top cpu 2}
+3. ${top name 3} ${alignr}${top pid 3}    ${alignr}${top cpu 3}
 $color
 
-${font CourierNew:size=14:weight=bold}${color $template0}Memory Load ${hr 2}$color$font
-${font CourierNew:size=10:weight=bold}${color $template1}Name${alignr}ID  ${alignr}Usage$color
-${color $template2}1. ${top_mem name 1} ${alignr}${top_mem pid 1} ${alignr}${top_mem mem 1}
-2. ${top_mem name 2} ${alignr}${top_mem pid 2} ${alignr}${top_mem mem 2}
-3. ${top_mem name 3} ${alignr}${top_mem pid 3} ${alignr}${top_mem mem 3}
+${font Play:size=14:bold}${color $template0}Memory Load ${hr 2}$color$font
+${font Play:size=10}${color $template5}Name${alignr}ID   ${alignr}Usage$color
+${color $template2}1. ${top_mem name 1} ${alignr}${top_mem pid 1}    ${alignr}${top_mem mem 1}
+2. ${top_mem name 2} ${alignr}${top_mem pid 2}    ${alignr}${top_mem mem 2}
+3. ${top_mem name 3} ${alignr}${top_mem pid 3}    ${alignr}${top_mem mem 3}
 $color
 
-${font CourierNew:size=14:weight=bold}${color $template0}RAM and SWAP Usage ${hr 2}$color$font
-${font CourierNew:size=10:weight=bold}${color $template1}RAM$color ${color $template2}${memperc}% $alignr${mem /} / ${memmax /}$color
+${font Play:size=14:bold}${color $template0}RAM and SWAP Usage ${hr 2}$color$font
+${font Play:size=10}${color $template1}RAM$color ${color $template2}${memperc}% $alignr${mem /} / ${memmax /}$color
 ${color $template5}${membar 3.180}
 ${color $template1}SWAP$color ${color $template2}${swapperc}% $alignr${swap /} / ${swapmax /}$color
 ${color $template5}${swapbar 3.180}$font

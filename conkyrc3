@@ -17,14 +17,14 @@ use_spacer right
 use_xft yes
 #xftalpha 1
 alignment top_left
-gap_x 720
+gap_x 820
 gap_y 50
 
 
 # --- Colours, Sizes, Fonts & Margins --- #
 update_interval 1.0
 minimum_size 250 200
-maximum_width 250
+maximum_width 200
 stippled_borders 3
 #border_margin 8
 border_width 10
@@ -39,21 +39,21 @@ override_utf8_locale yes
 text_buffer_size 3048
 
 #main color
-template0 1793d1
+template0 181a19
 template5 1793d1
 #second color
-template1 777777
+template1 cccccc
 #third color
-template2 777777
+template2 cccccc
 
-color1 777777
+color1 cccccc
 color2 1793d1
-color3 1793d1
+color3 181a19
 
 TEXT
 #${pre_exec /home/khaberev/startup/paconky.py /home/khaberev/.cache/pacman > /home/khaberev/.cache/packets}
-${font CourierNew:size=14:weight=bold}${color $template0}HDD Space Usage ${hr 2}$color$font
-${font CourierNew:size=10:weight=bold}${color $template1}/root$color ${color $template2}$alignr${fs_used_perc /}% Used
+${font Play:size=14:bold}${color $template0}HDD Space Usage ${hr 2}$color$font
+${font Play:size=10}${color $template1}/root$color ${color $template2}$alignr${fs_used_perc /}% Used
 ${fs_used /} / ${fs_size /}$color
 ${color $template5}${fs_bar 3 /}
 ${if_mounted /mainfiles}${color $template1}/mainfiles$color ${color $template2}$alignr${fs_used_perc /mainfiles}% Used
@@ -62,21 +62,21 @@ ${color $template5}${fs_bar 3 /mainfiles}$else
 ${color $template1}/mainfiles$color ${color $template2}$alignr Not Mounted
 $endif
 
-${font CourierNew:size=14:weight=bold}${color $template0}Disk Load ${hr 2}$color$font
-${font CourierNew:size=10:weight=bold}${color $template2}Read ${diskio_read sda} ${alignc}    Write ${diskio_write sda}$color
-${color $template1}${diskiograph_read sda 25,115 000000 $template5} $alignr${diskiograph_write sda 25,115 000000 $template5}$font
+${font Play:size=14:bold}${color $template0}Disk Load ${hr 2}$color$font
+${font Play:size=10}${color $template2}Read ${diskio_read sda} ${tab 55}Write ${diskio_write sda}$color
+${color $template1}${diskiograph_read sda 25,95 181a19 $template5} $alignr${diskiograph_write sda 25,95 181a19 $template5}$font
 
-${font CourierNew:size=14:weight=bold}${color $template0}Ethernet Activity ${hr 2}$color$font
-${font CourierNew:size=10:weight=bold}${color $template2}In ${totaldown enp2s0} ${alignc}      Out ${totalup enp2s0}
-${downspeed enp2s0} ${alignc}         ${upspeed enp2s0}$color
-${color $template1}${downspeedgraph enp2s0 25,115 000000 $template5} $alignr${upspeedgraph enp2s0 25,115 000000 $template5}$font
+${font Play:size=14:bold}${color $template0}Ethernet Activity ${hr 2}$color$font
+${font Play:size=10}${color $template2}In ${totaldown enp2s0} ${tab 55}Out ${totalup enp2s0}
+${downspeed enp2s0} ${tab 55}${upspeed enp2s0}$color
+${color $template1}${downspeedgraph enp2s0 25,95 000000 $template5} $alignr${upspeedgraph enp2s0 25,95 000000 $template5}$font
 
-${font CourierNew:size=14:weight=bold}${color $template0}WiFi Activity ${hr 2}$color$font
-${font CourierNew:size=10:weight=bold}${color $template2}In ${totaldown wlp4s0} ${alignc}      Out ${totalup wlp4s0}
-${downspeed wlp4s0} ${alignc}         ${upspeed wlp4s0}$color
-${color $template1}${downspeedgraph wlp4s0 25,115 000000 $template5} $alignr${upspeedgraph wlp4s0 25,115 000000 $template5}$font
+${font Play:size=14:bold}${color $template0}WiFi Activity ${hr 2}$color$font
+${font Play:size=10}${color $template2}In ${totaldown wlp4s0} ${tab 55}Out ${totalup wlp4s0}
+${downspeed wlp4s0} ${tab 55}${upspeed wlp4s0}$color
+${color $template1}${downspeedgraph wlp4s0 25,95 000000 $template5} $alignr${upspeedgraph wlp4s0 25,95 000000 $template5}$font
 
-${font CourierNew:size=14:weight=bold}${color $template0}Available updates ${hr 2}$color$font
-${font CourierNew:size=10:weight=bold}
+${font Play:size=14:bold}${color $template0}Available updates ${hr 2}$color$font
+${font Play:size=10}
 ${execp /home/khaberev/startup/scroll.py}
 $font
