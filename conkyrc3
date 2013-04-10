@@ -3,7 +3,7 @@
 
 # --- Window Layout & Options --- #
 
-own_window yes
+own_windoMaxKh
 own_window_class Conky
 own_window_type desktop
 own_window_type normal
@@ -17,13 +17,13 @@ use_spacer right
 use_xft yes
 #xftalpha 1
 alignment top_left
-gap_x 1370
+gap_x 720
 gap_y 50
 
 
 # --- Colours, Sizes, Fonts & Margins --- #
 update_interval 1.0
-minimum_size 300 200
+minimum_size 250 200
 maximum_width 250
 stippled_borders 3
 #border_margin 8
@@ -61,20 +61,20 @@ ${fs_used /mainfiles} / ${fs_size /mainfiles}$color
 ${color $template5}${fs_bar 3 /mainfiles}$else
 ${color $template1}/mainfiles$color ${color $template2}$alignr Not Mounted
 $endif
-${if_mounted /deb_workdir}${color $template1}/deb_workdir$color ${color $template2}$alignr${fs_used_perc /deb_workdir}% Used
-${fs_used /deb_workdir} / ${fs_size /deb_workdir}$color
-${color $template5}${fs_bar 3 /deb_workdir}$else
-${color $template1}/deb_workdir$color ${color $template2}$alignr Not Mounted
-$endif$font
 
 ${font CourierNew:size=14:weight=bold}${color $template0}Disk Load ${hr 2}$color$font
 ${font CourierNew:size=10:weight=bold}${color $template2}Read ${diskio_read sda} ${alignc}    Write ${diskio_write sda}$color
 ${color $template1}${diskiograph_read sda 25,115 000000 $template5} $alignr${diskiograph_write sda 25,115 000000 $template5}$font
 
 ${font CourierNew:size=14:weight=bold}${color $template0}Ethernet Activity ${hr 2}$color$font
-${font CourierNew:size=10:weight=bold}${color $template2}In ${totaldown eth1} ${alignc}      Out ${totalup eth1}
-${downspeed eth1} ${alignc}         ${upspeed eth1}$color
-${color $template1}${downspeedgraph eth1 25,115 000000 $template5} $alignr${upspeedgraph eth1 25,115 000000 $template5}$font
+${font CourierNew:size=10:weight=bold}${color $template2}In ${totaldown enp2s0} ${alignc}      Out ${totalup enp2s0}
+${downspeed enp2s0} ${alignc}         ${upspeed enp2s0}$color
+${color $template1}${downspeedgraph enp2s0 25,115 000000 $template5} $alignr${upspeedgraph enp2s0 25,115 000000 $template5}$font
+
+${font CourierNew:size=14:weight=bold}${color $template0}WiFi Activity ${hr 2}$color$font
+${font CourierNew:size=10:weight=bold}${color $template2}In ${totaldown wlp4s0} ${alignc}      Out ${totalup wlp4s0}
+${downspeed wlp4s0} ${alignc}         ${upspeed wlp4s0}$color
+${color $template1}${downspeedgraph wlp4s0 25,115 000000 $template5} $alignr${upspeedgraph wlp4s0 25,115 000000 $template5}$font
 
 ${font CourierNew:size=14:weight=bold}${color $template0}Available updates ${hr 2}$color$font
 ${font CourierNew:size=10:weight=bold}

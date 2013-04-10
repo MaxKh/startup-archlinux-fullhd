@@ -17,13 +17,13 @@ use_spacer right
 use_xft yes
 #xftalpha 1
 alignment top_left
-gap_x 1650
+gap_x 1000
 gap_y 50
 
 # --- Colours, Sizes, Fonts & Margins --- #
 update_interval 1.0
 maximum_width 250
-minimum_size 300 400
+minimum_size 250 300
 
 stippled_borders 3
 #border_margin 8
@@ -56,13 +56,14 @@ TEXT
 ${font CourierNew:size=14:weight=bold}${color $template0}System Info ${hr 2}$color$font
 ${font CourierNew:size=10:weight=bold}${color $template0}Uptime$color${alignr}${color $template2}$uptime$color
 ${color $template0}Kernel$color${alignr}${color $template2}$kernel$color
-${color $template0}IP${alignr}$color${color $template2}${addr eth1}$color$font
+${color $template0}Ethernet IP${alignr}$color${color $template2}${addr enp2s0}$color
+${color $template0}WiFi IP${alignr}$color${color $template2}${addr wlp4s0}$color$font
 
 ${font CourierNew:size=14:weight=bold}${color $template0}CPU Info ${hr 2}$color$font
 ${font CourierNew:size=10:weight=bold}${color $template1}${pre_exec cat /proc/cpuinfo | grep "model name" -m1 | cut -d":" -f2 | cut -d" " -f2- | awk '{print $1,$2}'}
 $alignr${pre_exec cat /proc/cpuinfo | grep "model name" -m1 | cut -d":" -f2 | cut -d" " -f2- | awk '{print $3,$4,$5,$7}'}$color$font
-${font CourierNew:size=10:weight=bold}${color $template0}CPU Temp: ${color $template1}${exec sensors | grep "CPU Temperature:" | awk '{print $3}'}
-${color $template0}Fan Speed: ${color $template1}${exec sensors | grep "CPU FAN Speed" | awk '{print $4}'} RPM
+${font CourierNew:size=10:weight=bold}${color $template0}CPU Temp: ${color $template1}${exec sensors | grep "Core 0:" | awk '{print $3}'}
+#${color $template0}Fan Speed: ${color $template1}${exec sensors | grep "CPU FAN Speed" | awk '{print $4}'} RPM
 
 ${color $template0}CPU 0 $color
 ${color $template0}Frequency: $color ${color $template2}${freq_g 0}GHz $color
@@ -72,14 +73,4 @@ ${cpugraph cpu0 25,250 000000 $template5 }
 ${color $template0}CPU 1 $color
 ${color $template0}Frequency: $color ${color $template2}${freq_g 1}GHz $color
 ${color $template0}Load:$color ${color $template1}${cpu cpu1}%        
-${cpugraph cpu1 25,250 000000 $template5 }
-
-${color $template0}CPU 2 $color
-${color $template0}Frequency: $color ${color $template2}${freq_g 2}GHz $color
-${color $template0}Load:$color ${color $template1}${cpu cpu2}%        
-${cpugraph cpu2 25,250 000000 $template5 }
-
-${color $template0}CPU 3 $color
-${color $template0}Frequency: $color ${color $template2}${freq_g 3}GHz $color
-${color $template0}Load:$color ${color $template1}${cpu cpu3}%        
-${cpugraph cpu3 25,250 000000 $template5 }$font
+${cpugraph cpu1 25,250 000000 $template5 }$font

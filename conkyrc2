@@ -17,13 +17,13 @@ use_spacer right
 use_xft yes
 #xftalpha 1
 alignment top_left
-gap_x 1650
-gap_y 670
+gap_x 1000
+gap_y 472
 
 # --- Colours, Sizes, Fonts & Margins --- #
 update_interval 1.0
 maximum_width 250
-minimum_size 300 100
+minimum_size 250 300
 
 stippled_borders 3
 #border_margin 8
@@ -57,8 +57,6 @@ ${font CourierNew:size=10:weight=bold}${color $template1}Name${alignr}ID  ${alig
 ${color $template2}1. ${top name 1} ${alignr}${top pid 1} ${alignr}${top cpu 1}
 2. ${top name 2} ${alignr}${top pid 2} ${alignr}${top cpu 2}
 3. ${top name 3} ${alignr}${top pid 3} ${alignr}${top cpu 3}
-4. ${top name 4} ${alignr}${top pid 4} ${alignr}${top cpu 4}
-5. ${top name 5} ${alignr}${top pid 5} ${alignr}${top cpu 5}
 $color
 
 ${font CourierNew:size=14:weight=bold}${color $template0}Memory Load ${hr 2}$color$font
@@ -66,8 +64,6 @@ ${font CourierNew:size=10:weight=bold}${color $template1}Name${alignr}ID  ${alig
 ${color $template2}1. ${top_mem name 1} ${alignr}${top_mem pid 1} ${alignr}${top_mem mem 1}
 2. ${top_mem name 2} ${alignr}${top_mem pid 2} ${alignr}${top_mem mem 2}
 3. ${top_mem name 3} ${alignr}${top_mem pid 3} ${alignr}${top_mem mem 3}
-4. ${top_mem name 4} ${alignr}${top_mem pid 4} ${alignr}${top_mem mem 4}
-5. ${top_mem name 5} ${alignr}${top_mem pid 5} ${alignr}${top_mem mem 5}
 $color
 
 ${font CourierNew:size=14:weight=bold}${color $template0}RAM and SWAP Usage ${hr 2}$color$font
