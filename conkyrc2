@@ -42,36 +42,36 @@ text_buffer_size 1024
 #lua_draw_hook_pre clock_rings
 
 #main color
-template0 64caff
-template5 64caff
+template0 181a19
+template5 1793d1
 #second color
-template1 aaaaaa
+template1 cccccc
 #third color
-template2 aaaaaa
+template2 cccccc
 
 cpu_avg_samples 3
 
 TEXT
-${font CourierNew:size=14:weight=bold}${color $template0}CPU Load ${hr 2}$color$font
-${font CourierNew:size=10:weight=bold}${color $template1}Name${alignr}ID  ${alignr}Usage$color
-${color $template2}1. ${top name 1} ${alignr}${top pid 1} ${alignr}${top cpu 1}
-2. ${top name 2} ${alignr}${top pid 2} ${alignr}${top cpu 2}
-3. ${top name 3} ${alignr}${top pid 3} ${alignr}${top cpu 3}
-4. ${top name 4} ${alignr}${top pid 4} ${alignr}${top cpu 4}
-5. ${top name 5} ${alignr}${top pid 5} ${alignr}${top cpu 5}
+${font Play:size=14}${color $template0}CPU Load ${hr 2}$color$font
+${font Play:size=10}${color $template5}Name${alignr}ID   ${alignr}Usage$color
+${color $template2}1. ${top name 1} ${alignr}${top pid 1}    ${alignr}${top cpu 1}
+2. ${top name 2} ${alignr}${top pid 2}    ${alignr}${top cpu 2}
+3. ${top name 3} ${alignr}${top pid 3}    ${alignr}${top cpu 3}
+4. ${top name 4} ${alignr}${top pid 4}    ${alignr}${top cpu 4}
+5. ${top name 5} ${alignr}${top pid 5}    ${alignr}${top cpu 5}
 $color
 
-${font CourierNew:size=14:weight=bold}${color $template0}Memory Load ${hr 2}$color$font
-${font CourierNew:size=10:weight=bold}${color $template1}Name${alignr}ID  ${alignr}Usage$color
-${color $template2}1. ${top_mem name 1} ${alignr}${top_mem pid 1} ${alignr}${top_mem mem 1}
-2. ${top_mem name 2} ${alignr}${top_mem pid 2} ${alignr}${top_mem mem 2}
-3. ${top_mem name 3} ${alignr}${top_mem pid 3} ${alignr}${top_mem mem 3}
-4. ${top_mem name 4} ${alignr}${top_mem pid 4} ${alignr}${top_mem mem 4}
-5. ${top_mem name 5} ${alignr}${top_mem pid 5} ${alignr}${top_mem mem 5}
+${font Play:size=14}${color $template0}Memory Load ${hr 2}$color$font
+${font Play:size=10}${color $template5}Name${alignr}ID   ${alignr}Usage$color
+${color $template2}1. ${top_mem name 1} ${alignr}${top_mem pid 1}    ${alignr}${top_mem mem 1}
+2. ${top_mem name 2} ${alignr}${top_mem pid 2}    ${alignr}${top_mem mem 2}
+3. ${top_mem name 3} ${alignr}${top_mem pid 3}    ${alignr}${top_mem mem 3}
+4. ${top_mem name 4} ${alignr}${top_mem pid 4}    ${alignr}${top_mem mem 4}
+5. ${top_mem name 5} ${alignr}${top_mem pid 5}    ${alignr}${top_mem mem 5}
 $color
 
-${font CourierNew:size=14:weight=bold}${color $template0}RAM and SWAP Usage ${hr 2}$color$font
-${font CourierNew:size=10:weight=bold}${color $template1}RAM$color ${color $template2}${memperc}% $alignr${mem /} / ${memmax /}$color
+${font Play:size=14}${color $template0}RAM and SWAP Usage ${hr 2}$color$font
+${font Play:size=10}${color $template1}RAM$color ${color $template2}${memperc}% $alignr${mem /} / ${memmax /}$color
 ${color $template5}${membar 3.180}
 ${color $template1}SWAP$color ${color $template2}${swapperc}% $alignr${swap /} / ${swapmax /}$color
 ${color $template5}${swapbar 3.180}$font

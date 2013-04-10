@@ -42,44 +42,44 @@ text_buffer_size 1024
 #lua_draw_hook_pre clock_rings
 
 #main color
-template0 64caff
-template5 64caff
+template0 181a19
+template5 1793d1
 #second color
-template1 aaaaaa
+template1 cccccc
 #third color
-template2 aaaaaa
+template2 cccccc
 
 xftfont CourierNew:size=14:weight=bold
 cpu_avg_samples 3
 
 TEXT
-${font CourierNew:size=14:weight=bold}${color $template0}System Info ${hr 2}$color$font
-${font CourierNew:size=10:weight=bold}${color $template0}Uptime$color${alignr}${color $template2}$uptime$color
+${font Play:size=14}${color $template0}System Info ${hr 2}$color$font
+${font Play:size=10}${color $template0}Uptime$color${alignr}${color $template2}$uptime$color
 ${color $template0}Kernel$color${alignr}${color $template2}$kernel$color
 ${color $template0}IP${alignr}$color${color $template2}${addr eth1}$color$font
 
-${font CourierNew:size=14:weight=bold}${color $template0}CPU Info ${hr 2}$color$font
-${font CourierNew:size=10:weight=bold}${color $template1}${pre_exec cat /proc/cpuinfo | grep "model name" -m1 | cut -d":" -f2 | cut -d" " -f2- | awk '{print $1,$2}'}
+${font Play:size=14}${color $template0}CPU Info ${hr 2}$color$font
+${font Play:size=10}${color $template1}${pre_exec cat /proc/cpuinfo | grep "model name" -m1 | cut -d":" -f2 | cut -d" " -f2- | awk '{print $1,$2}'}
 $alignr${pre_exec cat /proc/cpuinfo | grep "model name" -m1 | cut -d":" -f2 | cut -d" " -f2- | awk '{print $3,$4,$5,$7}'}$color$font
-${font CourierNew:size=10:weight=bold}${color $template0}CPU Temp: ${color $template1}${exec sensors | grep "CPU Temperature:" | awk '{print $3}'}
-${color $template0}Fan Speed: ${color $template1}${exec sensors | grep "CPU FAN Speed" | awk '{print $4}'} RPM
+${font CPlay:size=10}${color $template0}CPU Temp:${tab 40}${color $template1}${exec sensors | grep "CPU Temperature:" | awk '{print $3}'}
+${color $template0}Fan Speed:${tab 40}${color $template1}${exec sensors | grep "CPU FAN Speed" | awk '{print $4}'} RPM
 
-${color $template0}CPU 0 $color
-${color $template0}Frequency: $color ${color $template2}${freq_g 0}GHz $color
-${color $template0}Load:$color ${color $template1}${cpu cpu0}%        
+${color $template5}CPU 0
+${color $template0}Frequency:${tab 40}${color $template2}${freq_g 0}GHz
+${color $template0}Load:${tab 40}${color $template1}${cpu cpu0}%
 ${cpugraph cpu0 25,250 000000 $template5 }
 
-${color $template0}CPU 1 $color
-${color $template0}Frequency: $color ${color $template2}${freq_g 1}GHz $color
-${color $template0}Load:$color ${color $template1}${cpu cpu1}%        
+${color $template5}CPU 1
+${color $template0}Frequency:${tab 40}${color $template2}${freq_g 1}GHz
+${color $template0}Load:${tab 40}${color $template1}${cpu cpu1}%
 ${cpugraph cpu1 25,250 000000 $template5 }
 
-${color $template0}CPU 2 $color
-${color $template0}Frequency: $color ${color $template2}${freq_g 2}GHz $color
-${color $template0}Load:$color ${color $template1}${cpu cpu2}%        
+${color $template5}CPU 2
+${color $template0}Frequency: ${tab 40}${color $template2}${freq_g 2}GHz
+${color $template0}Load:${tab 40}${color $template1}${cpu cpu2}%
 ${cpugraph cpu2 25,250 000000 $template5 }
 
-${color $template0}CPU 3 $color
-${color $template0}Frequency: $color ${color $template2}${freq_g 3}GHz $color
-${color $template0}Load:$color ${color $template1}${cpu cpu3}%        
+${color $template5}CPU 3
+${color $template0}Frequency:${tab 40}${color $template2}${freq_g 3}GHz
+${color $template0}Load:${tab 40}${color $template1}${cpu cpu3}%
 ${cpugraph cpu3 25,250 000000 $template5 }$font

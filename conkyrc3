@@ -39,21 +39,21 @@ override_utf8_locale yes
 text_buffer_size 3048
 
 #main color
-template0 64caff
-template5 64caff
+template0 181a19
+template5 1793d1
 #second color
-template1 aaaaaa
+template1 cccccc
 #third color
-template2 aaaaaa
+template2 cccccc
 
-color1 aaaaaa
-color2 64caff
-color3 64caff
+color1 cccccc
+color2 1793d1
+color3 181a19
 
 TEXT
 #${pre_exec /home/khaberev/startup/paconky.py /home/khaberev/.cache/pacman > /home/khaberev/.cache/packets}
-${font CourierNew:size=14:weight=bold}${color $template0}HDD Space Usage ${hr 2}$color$font
-${font CourierNew:size=10:weight=bold}${color $template1}/root$color ${color $template2}$alignr${fs_used_perc /}% Used
+${font Play:size=14}${color $template0}HDD Space Usage ${hr 2}$color$font
+${font Play:size=10}${color $template1}/root$color ${color $template2}$alignr${fs_used_perc /}% Used
 ${fs_used /} / ${fs_size /}$color
 ${color $template5}${fs_bar 3 /}
 ${if_mounted /mainfiles}${color $template1}/mainfiles$color ${color $template2}$alignr${fs_used_perc /mainfiles}% Used
@@ -67,16 +67,16 @@ ${color $template5}${fs_bar 3 /deb_workdir}$else
 ${color $template1}/deb_workdir$color ${color $template2}$alignr Not Mounted
 $endif$font
 
-${font CourierNew:size=14:weight=bold}${color $template0}Disk Load ${hr 2}$color$font
-${font CourierNew:size=10:weight=bold}${color $template2}Read ${diskio_read sda} ${alignc}    Write ${diskio_write sda}$color
+${font Play:size=14}${color $template0}Disk Load ${hr 2}$color$font
+${font Play:size=10}${color $template2}Read ${diskio_read sda} ${tab 68}Write ${diskio_write sda}$color
 ${color $template1}${diskiograph_read sda 25,115 000000 $template5} $alignr${diskiograph_write sda 25,115 000000 $template5}$font
 
-${font CourierNew:size=14:weight=bold}${color $template0}Ethernet Activity ${hr 2}$color$font
-${font CourierNew:size=10:weight=bold}${color $template2}In ${totaldown eth1} ${alignc}      Out ${totalup eth1}
-${downspeed eth1} ${alignc}         ${upspeed eth1}$color
+${font Play:size=14}${color $template0}Ethernet Activity ${hr 2}$color$font
+${font Play:size=10}${color $template2}In ${totaldown eth1} ${tab 68}Out ${totalup eth1}
+${downspeed eth1} ${tab 68}${upspeed eth1}$color
 ${color $template1}${downspeedgraph eth1 25,115 000000 $template5} $alignr${upspeedgraph eth1 25,115 000000 $template5}$font
 
-${font CourierNew:size=14:weight=bold}${color $template0}Available updates ${hr 2}$color$font
-${font CourierNew:size=10:weight=bold}
+${font Play:size=14}${color $template0}Available updates ${hr 2}$color$font
+${font Play:size=10}
 ${execp /home/khaberev/startup/scroll.py}
 $font
