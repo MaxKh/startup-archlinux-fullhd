@@ -45,9 +45,9 @@ text_buffer_size 1024
 template0 181a19
 template5 1793d1
 #second color
-template1 cccccc
+template1 dddddd
 #third color
-template2 cccccc
+template2 dddddd
 
 xftfont CourierNew:size=14:weight=bold
 cpu_avg_samples 3
