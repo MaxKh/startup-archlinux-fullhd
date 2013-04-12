@@ -45,9 +45,9 @@ text_buffer_size 1024
 template0 181a19
 template5 1793d1
 #second color
-template1 dddddd
+template1 dadada
 #third color
-template2 dddddd
+template2 dadada
 
 cpu_avg_samples 3
 
