@@ -94,8 +94,6 @@ import urllib.error
 from collections import OrderedDict
 from pycman import config, action_sync, transaction
 
-
-
 def display(upgradable_sync, upgradable_aur):
   """Display the output.
 
@@ -124,6 +122,8 @@ def display(upgradable_sync, upgradable_aur):
   # The footer at the end of the list.
   footer = '\n${color1}${hr}\n\n'
 
+  h = config.init_with_config("/etc/pacman.conf")
+
   # An error occured.
   if upgradable_sync is None or upgradable_aur is None:
     print(header % (zero_text, error) + footer);
@@ -144,8 +144,16 @@ def display(upgradable_sync, upgradable_aur):
 
       pkgs = sorted(pkgs, key=lambda x: x[0].name)
       for local, sync in pkgs:
-        name, version = local.name, sync.version
-        print(line % (name, version), end='')
+        try:
+          if local.name in h.ignorepkgs:
+            name, version = local.name, str(sync.version)+"${color2}/locked${color}"
+            print(line % (name, version), end='')
+          else:
+            name, version = local.name, sync.version
+            print(line % (name, version), end='')
+        except:
+          name, version = "alpm issue", "detected"
+          print(line % (name, version), end='')
 
       print(footer)
 

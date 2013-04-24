@@ -36,7 +36,7 @@ draw_borders no
 uppercase no
 draw_shades no
 override_utf8_locale yes
-text_buffer_size 3048
+text_buffer_size 2048
 
 #main color
 template0 181a19
