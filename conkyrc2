@@ -45,9 +45,9 @@ text_buffer_size 1024
 template0 181a19
 template5 1793d1
 #second color
-template1 cccccc
+template1 dadada
 #third color
-template2 cccccc
+template2 dadada
 
 cpu_avg_samples 3
 
@@ -66,7 +66,7 @@ ${color $template2}1. ${top_mem name 1} ${alignr}${top_mem pid 1}    ${alignr}${
 3. ${top_mem name 3} ${alignr}${top_mem pid 3}    ${alignr}${top_mem mem 3}
 $color
 
-${font Play:size=14:bold}${color $template0}RAM and SWAP Usage ${hr 2}$color$font
+${font Play:size=14:bold}${color $template0}RAM & SWAP Usage ${hr 2}$color$font
 ${font Play:size=10}${color $template1}RAM$color ${color $template2}${memperc}% $alignr${mem /} / ${memmax /}$color
 ${color $template5}${membar 3.180}
 ${color $template1}SWAP$color ${color $template2}${swapperc}% $alignr${swap /} / ${swapmax /}$color

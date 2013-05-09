@@ -20,6 +20,7 @@ alignment top_left
 gap_x 820
 gap_y 50
 
+if_up_strictness address
 
 # --- Colours, Sizes, Fonts & Margins --- #
 update_interval 1.0
@@ -42,16 +43,15 @@ text_buffer_size 3048
 template0 181a19
 template5 1793d1
 #second color
-template1 cccccc
+template1 dadada
 #third color
-template2 cccccc
+template2 dadada
 
-color1 cccccc
+color1 dadada
 color2 1793d1
 color3 181a19
 
 TEXT
-#${pre_exec /home/khaberev/startup/paconky.py /home/khaberev/.cache/pacman > /home/khaberev/.cache/packets}
 ${font Play:size=14:bold}${color $template0}HDD Space Usage ${hr 2}$color$font
 ${font Play:size=10}${color $template1}/root$color ${color $template2}$alignr${fs_used_perc /}% Used
 ${fs_used /} / ${fs_size /}$color
@@ -65,16 +65,15 @@ $endif
 ${font Play:size=14:bold}${color $template0}Disk Load ${hr 2}$color$font
 ${font Play:size=10}${color $template2}Read ${diskio_read sda} ${tab 55}Write ${diskio_write sda}$color
 ${color $template1}${diskiograph_read sda 25,95 181a19 $template5} $alignr${diskiograph_write sda 25,95 181a19 $template5}$font
-
-${font Play:size=14:bold}${color $template0}Ethernet Activity ${hr 2}$color$font
-${font Play:size=10}${color $template2}In ${totaldown enp2s0} ${tab 55}Out ${totalup enp2s0}
-${downspeed enp2s0} ${tab 55}${upspeed enp2s0}$color
-${color $template1}${downspeedgraph enp2s0 25,95 000000 $template5} $alignr${upspeedgraph enp2s0 25,95 000000 $template5}$font
-
+${if_up wlp4s0}
 ${font Play:size=14:bold}${color $template0}WiFi Activity ${hr 2}$color$font
 ${font Play:size=10}${color $template2}In ${totaldown wlp4s0} ${tab 55}Out ${totalup wlp4s0}
 ${downspeed wlp4s0} ${tab 55}${upspeed wlp4s0}$color
-${color $template1}${downspeedgraph wlp4s0 25,95 000000 $template5} $alignr${upspeedgraph wlp4s0 25,95 000000 $template5}$font
+${color $template1}${downspeedgraph wlp4s0 25,95 181a19 $template5} $alignr${upspeedgraph wlp4s0 25,95 181a19 $template5}$font$else
+${font Play:size=14:bold}${color $template0}Ethernet Activity ${hr 2}$color$font
+${font Play:size=10}${color $template2}In ${totaldown enp2s0} ${tab 55}Out ${totalup enp2s0}
+${downspeed enp2s0} ${tab 55}${upspeed enp2s0}$color
+${color $template1}${downspeedgraph enp2s0 25,95 181a19 $template5} $alignr${upspeedgraph enp2s0 25,95 181a19 $template5}$font$endif
 
 ${font Play:size=14:bold}${color $template0}Available updates ${hr 2}$color$font
 ${font Play:size=10}
