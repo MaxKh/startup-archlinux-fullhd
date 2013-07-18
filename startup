@@ -10,4 +10,5 @@ sleep 10
 conky -c ~/startup/conkyrc&
 conky -c ~/startup/conkyrc2&
 conky -c ~/startup/conkyrc3&
+conky -c ~/startup/conkyrc4&
 ~/startup/paconky.py ~/.cache/pacman > ~/.cache/packets
