@@ -25,10 +25,9 @@ gap_y 50
 update_interval 1.0
 minimum_size 300 200
 maximum_width 250
+
 stippled_borders 3
-#border_margin 8
 border_width 10
-default_color white
 
 # --- Text --- #
 draw_outline no
@@ -51,32 +50,30 @@ color2 1793d1
 color3 181a19
 
 TEXT
-#${pre_exec /home/khaberev/startup/paconky.py /home/khaberev/.cache/pacman > /home/khaberev/.cache/packets}
-${font Play:size=14:bold}${color $template0}HDD Space Usage ${hr 2}$color$font
-${font Play:size=10}${color $template1}/root$color ${color $template2}$alignr${fs_used_perc /}% Used
-${fs_used /} / ${fs_size /}$color
+${font Play:size=14:bold}${color $template0}HDD Space Usage ${hr 2}
+${font Play:size=10}${color $template1}/root ${color $template2}$alignr${fs_used_perc /}% Used
+${fs_used /} / ${fs_size /}
 ${color $template5}${fs_bar 3 /}
-${if_mounted /mainfiles}${color $template1}/mainfiles$color ${color $template2}$alignr${fs_used_perc /mainfiles}% Used
-${fs_used /mainfiles} / ${fs_size /mainfiles}$color
+${if_mounted /mainfiles}${color $template1}/mainfiles ${color $template2}$alignr${fs_used_perc /mainfiles}% Used
+${fs_used /mainfiles} / ${fs_size /mainfiles}
 ${color $template5}${fs_bar 3 /mainfiles}$else
-${color $template1}/mainfiles$color ${color $template2}$alignr Not Mounted
+${color $template1}/mainfiles ${color $template2}$alignr Not Mounted
 $endif
-${if_mounted /deb_workdir}${color $template1}/deb_workdir$color ${color $template2}$alignr${fs_used_perc /deb_workdir}% Used
-${fs_used /deb_workdir} / ${fs_size /deb_workdir}$color
+${if_mounted /deb_workdir}${color $template1}/deb_workdir ${color $template2}$alignr${fs_used_perc /deb_workdir}% Used
+${fs_used /deb_workdir} / ${fs_size /deb_workdir}
 ${color $template5}${fs_bar 3 /deb_workdir}$else
-${color $template1}/deb_workdir$color ${color $template2}$alignr Not Mounted
-$endif$font
+${color $template1}/deb_workdir ${color $template2}$alignr Not Mounted
+$endif
 
-${font Play:size=14:bold}${color $template0}Disk Load ${hr 2}$color$font
-${font Play:size=10}${color $template2}Read ${diskio_read sda} ${tab 68}Write ${diskio_write sda}$color
-${color $template1}${diskiograph_read sda 25,115 181a19 $template5} $alignr${diskiograph_write sda 25,115 181a19 $template5}$font
+${font Play:size=14:bold}${color $template0}Disk Load ${hr 2}
+${font Play:size=10}${color $template2}Read ${diskio_read sda} ${tab 68}Write ${diskio_write sda}
+${color $template1}${diskiograph_read sda 25,115 181a19 $template5} $alignr${diskiograph_write sda 25,115 181a19 $template5}
 
-${font Play:size=14:bold}${color $template0}Ethernet Activity ${hr 2}$color$font
+${font Play:size=14:bold}${color $template0}Ethernet Activity ${hr 2}
 ${font Play:size=10}${color $template2}In ${totaldown eth1} ${tab 68}Out ${totalup eth1}
-${downspeed eth1} ${tab 68}${upspeed eth1}$color
-${color $template1}${downspeedgraph eth1 25,115 181a19 $template5} $alignr${upspeedgraph eth1 25,115 181a19 $template5}$font
+${downspeed eth1} ${tab 68}${upspeed eth1}
+${color $template1}${downspeedgraph eth1 25,115 181a19 $template5} $alignr${upspeedgraph eth1 25,115 181a19 $template5}
 
-${font Play:size=14:bold}${color $template0}Available updates ${hr 2}$color$font
+${font Play:size=14:bold}${color $template0}Available updates ${hr 2}
 ${font Play:size=10}
-${execp /home/khaberev/startup/scroll.py}
-$font
+${execp ~/startup/scroll.py}

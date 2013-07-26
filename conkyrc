@@ -26,9 +26,7 @@ maximum_width 250
 minimum_size 300 400
 
 stippled_borders 3
-#border_margin 8
 border_width 10
-default_color $template2
 
 # --- Text --- #
 draw_outline no
@@ -38,9 +36,6 @@ draw_shades no
 override_utf8_locale yes
 text_buffer_size 1024
 
-#lua_load ~/1.lua
-#lua_draw_hook_pre clock_rings
-
 #main color
 template0 181a19
 template5 1793d1
@@ -49,18 +44,18 @@ template1 dadada
 #third color
 template2 dadada
 
-xftfont CourierNew:size=14:weight=bold
 cpu_avg_samples 3
 
 TEXT
-${font Play:size=14:bold}${color $template0}System Info ${hr 2}$color$font
-${font Play:size=10}${color $template0}Uptime$color${alignr}${color $template2}$uptime$color
-${color $template0}Kernel$color${alignr}${color $template2}$kernel$color
-${color $template0}IP${alignr}$color${color $template2}${addr eth1}$color$font
+${font Play:size=14:bold}${color $template0}System Info ${hr 2}
+${font Play:size=10}${color $template0}Uptime${alignr}${color $template2}$uptime
+${color $template0}Kernel${alignr}${color $template2}$kernel
+${color $template0}IP${alignr}${color $template2}${addr eth1}
 
-${font Play:size=14:bold}${color $template0}CPU Info ${hr 2}$color$font
+${font Play:size=14:bold}${color $template0}CPU Info ${hr 2}
 ${font Play:size=10}${color $template1}${pre_exec cat /proc/cpuinfo | grep "model name" -m1 | cut -d":" -f2 | cut -d" " -f2- | awk '{print $1,$2}'}
-$alignr${pre_exec cat /proc/cpuinfo | grep "model name" -m1 | cut -d":" -f2 | cut -d" " -f2- | awk '{print $3,$4,$5,$7}'}$color$font
+$alignr${pre_exec cat /proc/cpuinfo | grep "model name" -m1 | cut -d":" -f2 | cut -d" " -f2- | awk '{print $3,$4,$5,$7}'}
+
 ${font Play:size=10}${color $template0}CPU Temp:${tab 40}${color $template1}${exec sensors | grep "CPU Temperature:" | awk '{print $3}'}
 ${color $template0}Fan Speed:${tab 40}${color $template1}${exec sensors | grep "CPU FAN Speed" | awk '{print $4}'} RPM
 
@@ -82,4 +77,4 @@ ${cpugraph cpu2 25,250 181a19 $template5 }
 ${color $template5}CPU 3
 ${color $template0}Frequency:${tab 40}${color $template2}${freq_g 3}GHz
 ${color $template0}Load:${tab 40}${color $template1}${cpu cpu3}%
-${cpugraph cpu3 25,250 181a19 $template5 }$font
+${cpugraph cpu3 25,250 181a19 $template5 }

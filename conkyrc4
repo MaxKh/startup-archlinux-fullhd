@@ -26,9 +26,7 @@ maximum_width 700
 minimum_size 700 100
 
 stippled_borders 3
-#border_margin 8
 border_width 10
-default_color $template2
 
 # --- Text --- #
 draw_outline no
@@ -38,9 +36,6 @@ draw_shades no
 override_utf8_locale yes
 text_buffer_size 1024
 
-#lua_load ~/1.lua
-#lua_draw_hook_pre clock_rings
-
 #main color
 template0 181a19
 template5 1793d1
@@ -49,12 +44,9 @@ template1 dadada
 #third color
 template2 dadada
 
-xftfont CourierNew:size=14:weight=bold
-cpu_avg_samples 3
-
 TEXT
-${font Play:size=14:bold}${color $template0}RSS Feeds ${hr 2}$color$font
+${font Play:size=14:bold}${color $template0}RSS Feeds ${hr 2}
 ${font Play:size=10}${color $template5}${rss https://www.archlinux.org/feeds/news/ 5 feed_title}
 ${color $template1}${rss https://www.archlinux.org/feeds/news/ 5 item_title 0}
 ${rss https://www.archlinux.org/feeds/news/ 5 item_title 1}
-${rss https://www.archlinux.org/feeds/news/ 5 item_title 2}$color
+${rss https://www.archlinux.org/feeds/news/ 5 item_title 2}
