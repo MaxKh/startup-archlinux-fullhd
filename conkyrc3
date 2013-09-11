@@ -58,7 +58,6 @@ ${color $template2}SWAP ${color $template2}$alignr${swapperc}% Used
 ${swap /} / ${swapmax /}
 ${color $template5}${swapbar 3.180}
 
-
 ${font Play:size=14:bold}${color $template0}HDD Space Usage ${hr 2}
 ${font Play:size=10}${color $template1}/root ${color $template2}$alignr${fs_used_perc /}% Used
 ${fs_used /} / ${fs_size /}
@@ -77,6 +76,5 @@ ${color $template5}${fs_bar 3 /deb_workdir}$else
 ${color $template1}/deb_workdir ${color $template2}$alignr Not Mounted
 $endif
 
-${voffset 7}
-${font Play:size=14:bold}${color $template0}Available Updates ${hr 2}
+${voffset 7}${font Play:size=14:bold}${color $template0}Available Updates ${hr 2}
 ${font Play:size=10}${execp ~/startup/scroll.py}

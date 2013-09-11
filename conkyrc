@@ -52,13 +52,11 @@ ${font Play:size=10}${color $template0}Uptime${alignr}${color $template2}$uptime
 ${color $template0}Kernel${alignr}${color $template2}$kernel
 ${color $template0}IP${alignr}${color $template2}${addr eth1}
 
-
 ${font Play:size=14:bold}${color $template0}CPU Info ${hr 2}
-${font Play:size=10}${color $template1}${pre_exec cat /proc/cpuinfo | grep "model name" -m1 | cut -d":" -f2 | cut -d" " -f2- | awk '{print $1,$2}'}${alignr}${pre_exec cat /proc/cpuinfo | grep "model name" -m1 | cut -d":" -f2 | cut -d" " -f2- | awk '{print $3,$4,$5,$7}'}
+${font Play:size=10}${color $template5}${pre_exec cat /proc/cpuinfo | grep "model name" -m1 | cut -d":" -f2 | cut -d" " -f2- | awk '{print $1,$2}'}${alignr}${pre_exec cat /proc/cpuinfo | grep "model name" -m1 | cut -d":" -f2 | cut -d" " -f2- | awk '{print $3,$4,$5,$7}'}
 
 ${font Play:size=10}${color $template0}CPU Temp:${alignr}${color $template1}${exec sensors | grep "CPU Temperature:" | awk '{print $3}'}
 ${color $template0}Fan Speed:${alignr}${color $template1}${exec sensors | grep "CPU FAN Speed" | awk '{print $4}'} RPM
-
 
 ${font Play:size=14:bold}${color $template0}CPU Activity ${hr 2}
 ${font Play:size=10}${color $template5}CPU 0${tab 68}CPU 1
@@ -71,29 +69,29 @@ ${color $template0}Freq:${tab 20}${color $template2}${freq_g 2}GHz${tab 68}${col
 ${color $template0}Load:${tab 20}${color $template2}${cpu cpu2}%${tab 68}${color $template0}Load:${tab 20}${color $template2}${cpu cpu3}%
 ${cpugraph cpu2 25,115 181a19 $template5 }${tab 68}${cpugraph cpu3 25,115 181a19 $template5 }
 
-
 ${font Play:size=14:bold}${color $template0}Ethernet Activity ${hr 2}
-${font Play:size=10}${color $template2}In ${totaldown eth1} ${tab 68}Out ${totalup eth1}
-${downspeed eth1} ${tab 68}${upspeed eth1}
+${font Play:size=10}${color $template5}In${tab 68}Out
+${color $template0}Tot:${tab 20}${color $template2}${totaldown eth1}${tab 68}${color $template0}Tot:${tab 20}${color $template2}${totalup eth1}
+${color $template0}Cur:${tab 20}${color $template2}${downspeed eth1}${tab 68}${color $template0}Cur:${tab 20}${color $template2}${upspeed eth1}
 ${color $template1}${downspeedgraph eth1 25,115 181a19 $template5} $alignr${upspeedgraph eth1 25,115 181a19 $template5}
 
-
 ${font Play:size=14:bold}${color $template0}HDD Activity ${hr 2}
-${font Play:size=10}${color $template2}Read ${diskio_read sda} ${tab 68}Write ${diskio_write sda}
+${font Play:size=10}${color $template5}Read${tab 68}Write
+${color $template0}Tot:${tab 20}${color $template2}${execp ~/startup/disk_total.py -d sda -m r}${tab 68}${color $template0}Tot:${tab 20}${color $template2}${execp ~/startup/disk_total.py -d sda -m w}
+${color $template0}Cur:${tab 20}${color $template2}${diskio_read sda}${tab 68}${color $template0}Cur:${tab 20}${color $template2}${diskio_write sda}
 ${color $template1}${diskiograph_read sda 25,115 181a19 $template5} $alignr${diskiograph_write sda 25,115 181a19 $template5}
 
-
 ${font Play:size=14:bold}${color $template0}Processes' Activity ${hr 2}
-${font Play:size=10}CPU
-${color $template5}Process${alignr}ID   ${alignr}Usage
+${color $template5}${font Play:size=10}CPU
+${color $template0}Name${alignr}ID   ${alignr}Usage
 ${color $template2}1. ${top name 1} ${alignr}${top pid 1}    ${alignr}${top cpu 1}
 2. ${top name 2} ${alignr}${top pid 2}    ${alignr}${top cpu 2}
 3. ${top name 3} ${alignr}${top pid 3}    ${alignr}${top cpu 3}
 4. ${top name 4} ${alignr}${top pid 4}    ${alignr}${top cpu 4}
 5. ${top name 5} ${alignr}${top pid 5}    ${alignr}${top cpu 5}
 
-${color $template0}Memory
-${color $template5}Process${alignr}ID   ${alignr}Usage
+${color $template5}Memory
+${color $template0}Name${alignr}ID   ${alignr}Usage
 ${color $template2}1. ${top_mem name 1} ${alignr}${top_mem pid 1}    ${alignr}${top_mem mem 1}
 2. ${top_mem name 2} ${alignr}${top_mem pid 2}    ${alignr}${top_mem mem 2}
 3. ${top_mem name 3} ${alignr}${top_mem pid 3}    ${alignr}${top_mem mem 3}
