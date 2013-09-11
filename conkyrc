@@ -18,7 +18,7 @@ use_xft yes
 #xftalpha 1
 alignment top_left
 gap_x 1650
-gap_y 50
+gap_y 60
 
 # --- Colours, Sizes, Fonts & Margins --- #
 update_interval 1.0
@@ -38,7 +38,7 @@ text_buffer_size 1024
 
 #main color
 template0 181a19
-template5 1793d1
+template5 14ae76
 #second color
 template1 dadada
 #third color
@@ -52,29 +52,51 @@ ${font Play:size=10}${color $template0}Uptime${alignr}${color $template2}$uptime
 ${color $template0}Kernel${alignr}${color $template2}$kernel
 ${color $template0}IP${alignr}${color $template2}${addr eth1}
 
+
 ${font Play:size=14:bold}${color $template0}CPU Info ${hr 2}
 ${font Play:size=10}${color $template1}${pre_exec cat /proc/cpuinfo | grep "model name" -m1 | cut -d":" -f2 | cut -d" " -f2- | awk '{print $1,$2}'}
-$alignr${pre_exec cat /proc/cpuinfo | grep "model name" -m1 | cut -d":" -f2 | cut -d" " -f2- | awk '{print $3,$4,$5,$7}'}
+${alignr}${pre_exec cat /proc/cpuinfo | grep "model name" -m1 | cut -d":" -f2 | cut -d" " -f2- | awk '{print $3,$4,$5,$7}'}
 
-${font Play:size=10}${color $template0}CPU Temp:${tab 40}${color $template1}${exec sensors | grep "CPU Temperature:" | awk '{print $3}'}
-${color $template0}Fan Speed:${tab 40}${color $template1}${exec sensors | grep "CPU FAN Speed" | awk '{print $4}'} RPM
+${font Play:size=10}${color $template0}CPU Temp:${alignr}${color $template1}${exec sensors | grep "CPU Temperature:" | awk '{print $3}'}
+${color $template0}Fan Speed:${alignr}${color $template1}${exec sensors | grep "CPU FAN Speed" | awk '{print $4}'} RPM
 
-${color $template5}CPU 0
-${color $template0}Frequency:${tab 40}${color $template2}${freq_g 0}GHz
-${color $template0}Load:${tab 40}${color $template1}${cpu cpu0}%
-${cpugraph cpu0 25,250 181a19 $template5 }
 
-${color $template5}CPU 1
-${color $template0}Frequency:${tab 40}${color $template2}${freq_g 1}GHz
-${color $template0}Load:${tab 40}${color $template1}${cpu cpu1}%
-${cpugraph cpu1 25,250 181a19 $template5 }
+${font Play:size=14:bold}${color $template0}CPU Load ${hr 2}
+${font Play:size=10}${color $template5}CPU 0${tab 68}CPU 1
+${color $template0}Freq:${tab 20}${color $template2}${freq_g 0}GHz${tab 68}${color $template0}Freq:${tab 20}${color $template2}${freq_g 1}GHz
+${color $template0}Load:${tab 20}${color $template2}${cpu cpu0}%${tab 68}${color $template0}Load:${tab 20}${color $template2}${cpu cpu1}%
+${cpugraph cpu0 25,115 181a19 $template5 }${tab 68}${cpugraph cpu0 25,115 181a19 $template5 }
 
-${color $template5}CPU 2
-${color $template0}Frequency: ${tab 40}${color $template2}${freq_g 2}GHz
-${color $template0}Load:${tab 40}${color $template1}${cpu cpu2}%
-${cpugraph cpu2 25,250 181a19 $template5 }
+${color $template5}CPU 2${tab 68}CPU 3
+${color $template0}Freq:${tab 20}${color $template2}${freq_g 2}GHz${tab 68}${color $template0}Freq:${tab 20}${color $template2}${freq_g 3}GHz
+${color $template0}Load:${tab 20}${color $template2}${cpu cpu2}%${tab 68}${color $template0}Load:${tab 20}${color $template2}${cpu cpu3}%
+${cpugraph cpu2 25,115 181a19 $template5 }${tab 68}${cpugraph cpu3 25,115 181a19 $template5 }
 
-${color $template5}CPU 3
-${color $template0}Frequency:${tab 40}${color $template2}${freq_g 3}GHz
-${color $template0}Load:${tab 40}${color $template1}${cpu cpu3}%
-${cpugraph cpu3 25,250 181a19 $template5 }
+${color $template5}Process${alignr}ID   ${alignr}Usage
+${color $template2}1. ${top name 1} ${alignr}${top pid 1}    ${alignr}${top cpu 1}
+2. ${top name 2} ${alignr}${top pid 2}    ${alignr}${top cpu 2}
+3. ${top name 3} ${alignr}${top pid 3}    ${alignr}${top cpu 3}
+4. ${top name 4} ${alignr}${top pid 4}    ${alignr}${top cpu 4}
+5. ${top name 5} ${alignr}${top pid 5}    ${alignr}${top cpu 5}
+
+
+${font Play:size=14:bold}${color $template0}Memory Load ${hr 2}
+${font Play:size=10}${color $template2}RAM$alignr${color $template2}${memperc}% Used
+${mem /} / ${memmax /}
+${color $template5}${membar 3.180}
+${color $template2}SWAP ${color $template2}$alignr${swapperc}% Used
+${swap /} / ${swapmax /}
+${color $template5}${swapbar 3.180}
+
+${font Play:size=10}${color $template5}Process${alignr}ID   ${alignr}Usage
+${color $template2}1. ${top_mem name 1} ${alignr}${top_mem pid 1}    ${alignr}${top_mem mem 1}
+2. ${top_mem name 2} ${alignr}${top_mem pid 2}    ${alignr}${top_mem mem 2}
+3. ${top_mem name 3} ${alignr}${top_mem pid 3}    ${alignr}${top_mem mem 3}
+4. ${top_mem name 4} ${alignr}${top_mem pid 4}    ${alignr}${top_mem mem 4}
+5. ${top_mem name 5} ${alignr}${top_mem pid 5}    ${alignr}${top_mem mem 5}
+
+
+${font Play:size=14:bold}${color $template0}Ethernet Activity ${hr 2}
+${font Play:size=10}${color $template2}In ${totaldown eth1} ${tab 68}Out ${totalup eth1}
+${downspeed eth1} ${tab 68}${upspeed eth1}
+${color $template1}${downspeedgraph eth1 25,115 181a19 $template5} $alignr${upspeedgraph eth1 25,115 181a19 $template5}

@@ -18,7 +18,7 @@ use_xft yes
 #xftalpha 1
 alignment top_left
 gap_x 640
-gap_y 50
+gap_y 60
 
 # --- Colours, Sizes, Fonts & Margins --- #
 update_interval 1.0
@@ -38,7 +38,7 @@ text_buffer_size 1024
 
 #main color
 template0 181a19
-template5 1793d1
+template5 14ae76
 #second color
 template1 dadada
 #third color

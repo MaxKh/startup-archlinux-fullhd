@@ -18,7 +18,7 @@ use_xft yes
 #xftalpha 1
 alignment top_left
 gap_x 1370
-gap_y 50
+gap_y 60
 
 
 # --- Colours, Sizes, Fonts & Margins --- #
@@ -39,14 +39,14 @@ text_buffer_size 2048
 
 #main color
 template0 181a19
-template5 1793d1
+template5 14ae76
 #second color
 template1 dadada
 #third color
 template2 dadada
 
 color1 dadada
-color2 1793d1
+color2 14ae76
 color3 181a19
 
 TEXT
@@ -68,14 +68,11 @@ ${color $template5}${fs_bar 3 /deb_workdir}$else
 ${color $template1}/deb_workdir ${color $template2}$alignr Not Mounted
 $endif
 
-${font Play:size=14:bold}${color $template0}Disk Load ${hr 2}
+
+${font Play:size=14:bold}${color $template0}HDD Activity ${hr 2}
 ${font Play:size=10}${color $template2}Read ${diskio_read sda} ${tab 68}Write ${diskio_write sda}
 ${color $template1}${diskiograph_read sda 25,115 181a19 $template5} $alignr${diskiograph_write sda 25,115 181a19 $template5}
 
-${font Play:size=14:bold}${color $template0}Ethernet Activity ${hr 2}
-${font Play:size=10}${color $template2}In ${totaldown eth1} ${tab 68}Out ${totalup eth1}
-${downspeed eth1} ${tab 68}${upspeed eth1}
-${color $template1}${downspeedgraph eth1 25,115 181a19 $template5} $alignr${upspeedgraph eth1 25,115 181a19 $template5}
 
 ${font Play:size=14:bold}${color $template0}Available updates ${hr 2}
 ${font Play:size=10}${execp ~/startup/scroll.py}

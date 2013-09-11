@@ -6,7 +6,7 @@
 import os
 
 
-size = 32
+size = 37
 buf = []
 
 home = os.path.expanduser("~")
