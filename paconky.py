@@ -144,16 +144,21 @@ def display(upgradable_sync, upgradable_aur):
 
       pkgs = sorted(pkgs, key=lambda x: x[0].name)
       for local, sync in pkgs:
+
+        name, version = "", ""
+
         try:
           if local.name in h.ignorepkgs:
             name, version = local.name, str(sync.version)+"${color2}/locked${color}"
-            print(line % (name, version), end='')
           else:
             name, version = local.name, sync.version
-            print(line % (name, version), end='')
         except:
           name, version = "alpm issue", "detected"
-          print(line % (name, version), end='')
+
+        if len(name) > 20:
+          name = name[0:18] + "..."
+
+        print(line % (name, version), end='')
 
       print(footer)
 
