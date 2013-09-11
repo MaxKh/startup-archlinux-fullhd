@@ -18,7 +18,7 @@ use_xft yes
 #xftalpha 1
 alignment top_left
 gap_x 640
-gap_y 60
+gap_y 50
 
 # --- Colours, Sizes, Fonts & Margins --- #
 update_interval 1.0
