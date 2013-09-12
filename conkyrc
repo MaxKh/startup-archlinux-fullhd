@@ -77,11 +77,11 @@ ${color $template1}${downspeedgraph eth1 25,115 181a19 $template5} $alignr${upsp
 
 ${font Play:size=14:bold}${color $template0}HDD Activity ${hr 2}
 ${font Play:size=10}${color $template5}Read${tab 68}Write
-${color $template0}Tot:${tab 20}${color $template2}${execp ~/startup/disk_total.py -d sda -m r}${tab 68}${color $template0}Tot:${tab 20}${color $template2}${execp ~/startup/disk_total.py -d sda -m w}
+${color $template0}Tot:${tab 20}${color $template2}${execpi 5 ~/startup/disk_total.py -d sda -m r}${tab 68}${color $template0}Tot:${tab 20}${color $template2}${execpi 5 ~/startup/disk_total.py -d sda -m w}
 ${color $template0}Cur:${tab 20}${color $template2}${diskio_read sda}${tab 68}${color $template0}Cur:${tab 20}${color $template2}${diskio_write sda}
 ${color $template1}${diskiograph_read sda 25,115 181a19 $template5} $alignr${diskiograph_write sda 25,115 181a19 $template5}
 
-${font Play:size=14:bold}${color $template0}Processes' Activity ${hr 2}
+${font Play:size=14:bold}${color $template0}Process Activity ${hr 2}
 ${color $template5}${font Play:size=10}CPU
 ${color $template0}Name${alignr}ID   ${alignr}Usage
 ${color $template2}1. ${top name 1} ${alignr}${top pid 1}    ${alignr}${top cpu 1}
