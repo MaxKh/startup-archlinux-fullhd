@@ -50,7 +50,7 @@ color2 14ae76
 color3 181a19
 
 TEXT
-${font Play:size=14:bold}${color $template0}Memory Load ${hr 2}
+${font Play:size=14:bold}${color $template0}Memory Usage ${hr 2}
 ${font Play:size=10}${color $template2}RAM$alignr${color $template2}${memperc}% Used
 ${mem /} / ${memmax /}
 ${color $template5}${membar 3.180}

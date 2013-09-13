@@ -59,14 +59,14 @@ ${font Play:size=10}${color $template0}CPU Temp:${alignr}${color $template1}${ex
 ${color $template0}Fan Speed:${alignr}${color $template1}${exec sensors | grep "CPU FAN Speed" | awk '{print $4}'} RPM
 
 ${font Play:size=14:bold}${color $template0}CPU Activity ${hr 2}
-${font Play:size=10}${color $template5}CPU 0${tab 68}CPU 1
-${color $template0}Freq:${tab 20}${color $template2}${freq_g 0}GHz${tab 68}${color $template0}Freq:${tab 20}${color $template2}${freq_g 1}GHz
-${color $template0}Load:${tab 20}${color $template2}${cpu cpu0}%${tab 68}${color $template0}Load:${tab 20}${color $template2}${cpu cpu1}%
+${font Play:size=10}${color $template5}CPU 1${tab 68}CPU 2
+${color $template0}Freq:${tab 20}${color $template2}${freq_g 1}GHz${tab 68}${color $template0}Freq:${tab 20}${color $template2}${freq_g 2}GHz
+${color $template0}Load:${tab 20}${color $template2}${cpu cpu1}%${tab 68}${color $template0}Load:${tab 20}${color $template2}${cpu cpu2}%
 ${cpugraph cpu0 25,115 181a19 $template5 }${tab 68}${cpugraph cpu0 25,115 181a19 $template5 }
 
-${color $template5}CPU 2${tab 68}CPU 3
-${color $template0}Freq:${tab 20}${color $template2}${freq_g 2}GHz${tab 68}${color $template0}Freq:${tab 20}${color $template2}${freq_g 3}GHz
-${color $template0}Load:${tab 20}${color $template2}${cpu cpu2}%${tab 68}${color $template0}Load:${tab 20}${color $template2}${cpu cpu3}%
+${color $template5}CPU 3${tab 68}CPU 4
+${color $template0}Freq:${tab 20}${color $template2}${freq_g 3}GHz${tab 68}${color $template0}Freq:${tab 20}${color $template2}${freq_g 4}GHz
+${color $template0}Load:${tab 20}${color $template2}${cpu cpu3}%${tab 68}${color $template0}Load:${tab 20}${color $template2}${cpu cpu4}%
 ${cpugraph cpu2 25,115 181a19 $template5 }${tab 68}${cpugraph cpu3 25,115 181a19 $template5 }
 
 ${font Play:size=14:bold}${color $template0}Ethernet Activity ${hr 2}
