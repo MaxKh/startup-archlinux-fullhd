@@ -34,7 +34,7 @@ draw_borders no
 uppercase no
 draw_shades no
 override_utf8_locale yes
-text_buffer_size 1024
+text_buffer_size 2048
 
 #main color
 template0 181a19
@@ -45,6 +45,8 @@ template1 dadada
 template2 dadada
 
 cpu_avg_samples 3
+diskio_avg_samples 3
+net_avg_samples 3
 
 TEXT
 ${font Play:size=14:bold}${color $template0}System Info ${hr 2}
@@ -57,6 +59,7 @@ ${font Play:size=10}${color $template5}${pre_exec cat /proc/cpuinfo | grep "mode
 
 ${font Play:size=10}${color $template0}CPU Temp:${alignr}${color $template1}${exec sensors | grep "CPU Temperature:" | awk '{print $3}'}
 ${color $template0}Fan Speed:${alignr}${color $template1}${exec sensors | grep "CPU FAN Speed" | awk '{print $4}'} RPM
+${color $template0}Governor:${alignr}${color $template1}${exec cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor}
 
 ${font Play:size=14:bold}${color $template0}CPU Activity ${hr 2}
 ${font Play:size=10}${color $template5}CPU 1${tab 68}CPU 2
