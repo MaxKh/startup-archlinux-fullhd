@@ -36,17 +36,18 @@ draw_shades no
 override_utf8_locale yes
 text_buffer_size 1024
 
-#main color
-template0 181a19
-template5 14ae76
-#second color
-template1 dadada
-#third color
-template2 dadada
+color1 dadada
+color2 14ae76
+color3 181a19
 
 TEXT
-${font Play:size=14:bold}${color $template0}RSS Feeds ${hr 2}
-${font Play:size=10}${color $template5}${rss https://www.archlinux.org/feeds/news/ 5 feed_title}
-${color $template1}${rss https://www.archlinux.org/feeds/news/ 5 item_title 0}
-${rss https://www.archlinux.org/feeds/news/ 5 item_title 1}
-${rss https://www.archlinux.org/feeds/news/ 5 item_title 2}
+${font Play:size=14:bold}${color3}RSS Feeds ${hr 2}
+${font Play:size=10}${color2}${rss https://www.archlinux.org/feeds/news/ 60 feed_title}
+${color1}${rss https://www.archlinux.org/feeds/news/ 60 item_title 0}
+${rss https://www.archlinux.org/feeds/news/ 60 item_title 1}
+${rss https://www.archlinux.org/feeds/news/ 60 item_title 2}
+
+${font Play:size=14:bold}${color3}Weather ${hr 2}
+${font Play:size=10}${color2}Nizhniy Novgorod, Russia
+
+${execpi 60 ~/startup/weather.py -l 27553}
