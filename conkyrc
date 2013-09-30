@@ -13,9 +13,7 @@ own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 background yes
 
 double_buffer yes
-use_spacer right
 use_xft yes
-#xftalpha 1
 alignment top_left
 gap_x 1370
 gap_y 50
@@ -83,17 +81,17 @@ ${color1}${diskiograph_read sda 25,115 181a19 $template2} $alignr${diskiograph_w
 
 ${font Play:size=14:bold}${color3}Process Activity ${hr 2}
 ${color2}${font Play:size=10}CPU
-${color3}Name${alignr}ID   ${alignr}Usage
-${color1}1. ${top name 1} ${alignr}${top pid 1}    ${alignr}${top cpu 1}
-2. ${top name 2} ${alignr}${top pid 2}    ${alignr}${top cpu 2}
-3. ${top name 3} ${alignr}${top pid 3}    ${alignr}${top cpu 3}
-4. ${top name 4} ${alignr}${top pid 4}    ${alignr}${top cpu 4}
-5. ${top name 5} ${alignr}${top pid 5}    ${alignr}${top cpu 5}
+${color3}Name${alignr}${offset -1}ID    ${alignr}Usage
+${color1}1. ${top name 1} ${alignr}${if_match ${top cpu 1} < 10}${offset -5}$endif${top pid 1}    ${alignr}${top cpu 1}
+2. ${top name 2} ${alignr}${if_match ${top cpu 2} < 10}${offset -5}$endif${top pid 2}    ${alignr}${top cpu 2}
+3. ${top name 3} ${alignr}${if_match ${top cpu 3} < 10}${offset -5}$endif${top pid 3}    ${alignr}${top cpu 3}
+4. ${top name 4} ${alignr}${if_match ${top cpu 4} < 10}${offset -5}$endif${top pid 4}    ${alignr}${top cpu 4}
+5. ${top name 5} ${alignr}${if_match ${top cpu 5} < 10}${offset -5}$endif${top pid 5}    ${alignr}${top cpu 5}
 
 ${color2}Memory
-${color3}Name${alignr}ID   ${alignr}Usage
-${color1}1. ${top_mem name 1} ${alignr}${top_mem pid 1}    ${alignr}${top_mem mem 1}
-2. ${top_mem name 2} ${alignr}${top_mem pid 2}    ${alignr}${top_mem mem 2}
-3. ${top_mem name 3} ${alignr}${top_mem pid 3}    ${alignr}${top_mem mem 3}
-4. ${top_mem name 4} ${alignr}${top_mem pid 4}    ${alignr}${top_mem mem 4}
-5. ${top_mem name 5} ${alignr}${top_mem pid 5}    ${alignr}${top_mem mem 5}
+${color3}Name${alignr}${offset -1}ID    ${alignr}Usage
+${color1}1. ${top_mem name 1} ${alignr}${if_match ${top_mem mem 1} < 10}${offset -5}$endif${top_mem pid 1}    ${alignr}${top_mem mem 1}
+2. ${top_mem name 2} ${alignr}${if_match ${top_mem mem 2} < 10}${offset -5}$endif${top_mem pid 2}    ${alignr}${top_mem mem 2}
+3. ${top_mem name 3} ${alignr}${if_match ${top_mem mem 3} < 10}${offset -5}$endif${top_mem pid 3}    ${alignr}${top_mem mem 3}
+4. ${top_mem name 4} ${alignr}${if_match ${top_mem mem 4} < 10}${offset -5}$endif${top_mem pid 4}    ${alignr}${top_mem mem 4}
+5. ${top_mem name 5} ${alignr}${if_match ${top_mem mem 5} < 10}${offset -5}$endif${top_mem pid 5}    ${alignr}${top_mem mem 5}
