@@ -36,7 +36,7 @@ override_utf8_locale yes
 text_buffer_size 2048
 
 color1 dadada
-color2 14ae76
+color2 c4631b
 color3 181a19
 
 TEXT
