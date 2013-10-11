@@ -8,7 +8,8 @@ numlockx on
 # trash icon fix
 xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons/show-trash -s false 2>&1
 xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons/show-trash -s true 2>&1
-#xautolock -time 10 -locker slimlock &
+light-locker &
+xautolock -time 10 -locker "light-locker-command -l" &
 skype &
 sleep 10
 conky -c ~/startup/conkyrc&
