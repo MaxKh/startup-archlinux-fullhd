@@ -8,7 +8,7 @@ import xml.etree.ElementTree as etree
 TOD = {'0':'Night', '1':'Morning', '2':'Day', '3':'Evening'}
 CLOUD = {'0':'Fair','1':'Partly Cloudy', '2':'Cloudy', '3':'Mainly Cloudy'}
 PREC = {'4':'Light Rain', '5':'Rain', '6':'Show', '7':'Snow', '8':'Storm', '9':'', '10':''}
-DIR = {'1':'N', '2':'N-E', '3':'E', '4':'S-E', '5':'S', '6':'S-W', '7':'W', '8':'N-W'}
+DIR = {'0': 'C', '1':'N', '2':'N-E', '3':'E', '4':'S-E', '5':'S', '6':'S-W', '7':'W', '8':'N-W'}
 
 location_string = "${goto 15}${color2}%s"
 day_string = "${goto %s}${color2}%s"
