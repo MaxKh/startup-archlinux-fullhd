@@ -60,12 +60,12 @@ ${font Play:size=14:bold}${color3}CPU Activity ${hr 2}
 ${font Play:size=10}${color2}CPU 1${tab 68}CPU 2
 ${color3}Freq:${tab 20}${color1}${freq_g 1}GHz${tab 68}${color3}Freq:${tab 20}${color1}${freq_g 2}GHz
 ${color3}Load:${tab 20}${color1}${cpu cpu1}%${tab 68}${color3}Load:${tab 20}${color1}${cpu cpu2}%
-${cpugraph cpu0 25,115 181a19 $template2 }${tab 68}${cpugraph cpu0 25,115 181a19 $template2 }
+${cpugraph cpu1 25,115 181a19 $template2 }${tab 68}${cpugraph cpu2 25,115 181a19 $template2 }
 
 ${color2}CPU 3${tab 68}CPU 4
 ${color3}Freq:${tab 20}${color1}${freq_g 3}GHz${tab 68}${color3}Freq:${tab 20}${color1}${freq_g 4}GHz
 ${color3}Load:${tab 20}${color1}${cpu cpu3}%${tab 68}${color3}Load:${tab 20}${color1}${cpu cpu4}%
-${cpugraph cpu2 25,115 181a19 $template2 }${tab 68}${cpugraph cpu3 25,115 181a19 $template2 }
+${cpugraph cpu3 25,115 181a19 $template2 }${tab 68}${cpugraph cpu4 25,115 181a19 $template2 }
 
 ${font Play:size=14:bold}${color3}Ethernet Activity ${hr 2}
 ${font Play:size=10}${color2}In${tab 68}Out

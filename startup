@@ -1,7 +1,7 @@
 #sleep 10
 #xrandr --output CRT2 --off --output CRT1 --mode 1280x1024 --pos 1920x0 --rotate normal --output DFP2 --mode 1920x1080 --pos 0x0 --rotate normal --output DFP1 --off
 sleep 10
-setxkbmap -layout us,ru -variant ,winkeys -option grp:sclk_toggle
+setxkbmap -layout us,ru -variant ,winkeys -option grp:sclk_toggle,grp_led:scroll
 volumeicon &
 xset b off
 numlockx on
