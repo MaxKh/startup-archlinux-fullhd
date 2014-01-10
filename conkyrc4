@@ -15,13 +15,13 @@ background yes
 double_buffer yes
 use_xft yes
 alignment top_left
-gap_x 640
-gap_y 50
+gap_x 370
+gap_y 30
 
 # --- Colours, Sizes, Fonts & Margins --- #
 update_interval 1.0
-maximum_width 700
-minimum_size 700 100
+maximum_width 430
+minimum_size 430 100
 
 stippled_borders 3
 border_width 10
@@ -39,11 +39,11 @@ color2 1793d1
 color3 181a19
 
 TEXT
-${font Play:size=14:bold}${color3}RSS Feeds ${hr 2}
-${font Play:size=10}${color2}${rss https://www.archlinux.org/feeds/news/ 60 feed_title}
+${font Play:size=12:bold}${color3}RSS Feeds ${hr 2}
+${font Play:size=9}${color2}${rss https://www.archlinux.org/feeds/news/ 60 feed_title}
 ${color1}${rss https://www.archlinux.org/feeds/news/ 60 item_title 0}
 ${rss https://www.archlinux.org/feeds/news/ 60 item_title 1}
 ${rss https://www.archlinux.org/feeds/news/ 60 item_title 2}
 
-${font Play:size=14:bold}${color3}Weather ${hr 2}
-${font Play:size=10}${execpi 60 ~/startup/weather2.py -l 4355}
+${font Play:size=12:bold}${color3}Weather ${hr 2}
+${font Play:size=9}${execpi 60 ~/startup/weather2.py -l 4355}

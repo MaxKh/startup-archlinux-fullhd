@@ -15,14 +15,14 @@ background yes
 double_buffer yes
 use_xft yes
 alignment top_left
-gap_x 1650
-gap_y 50
+gap_x 1060
+gap_y 30
 
 
 # --- Colours, Sizes, Fonts & Margins --- #
 update_interval 1.0
-minimum_size 300 200
-maximum_width 250
+minimum_size 250 200
+maximum_width 200
 
 stippled_borders 3
 border_width 10
@@ -40,31 +40,23 @@ color2 1793d1
 color3 181a19
 
 TEXT
-${font Play:size=14:bold}${color3}Memory Usage ${hr 2}
-${font Play:size=10}${color1}RAM$alignr${color1}${memperc}% Used
+${font Play:size=12:bold}${color3}Memory Usage ${hr 2}
+${font Play:size=9}${color1}RAM$alignr${color1}${memperc}% Used
 ${mem /} / ${memmax /}
 ${color2}${membar 3.180}
 ${color1}SWAP ${color1}$alignr${swapperc}% Used
 ${swap /} / ${swapmax /}
 ${color2}${swapbar 3.180}
 
-${font Play:size=14:bold}${color3}HDD Space Usage ${hr 2}
-${font Play:size=10}${color1}/root ${color1}$alignr${fs_used_perc /}% Used
+${font Play:size=12:bold}${color3}HDD Space Usage ${hr 2}
+${font Play:size=9}${color1}/ ${color1}$alignr${fs_used_perc /}% Used
 ${fs_used /} / ${fs_size /}
 ${color2}${fs_bar 3 /}
-${font Play:size=10}${color1}/home ${color1}$alignr${fs_used_perc /home}% Used
-${fs_used /home} / ${fs_size /home}
-${color2}${fs_bar 3 /home}
 ${if_mounted /mainfiles}${color1}/mainfiles ${color1}$alignr${fs_used_perc /mainfiles}% Used
 ${fs_used /mainfiles} / ${fs_size /mainfiles}
 ${color2}${fs_bar 3 /mainfiles}$else
 ${color1}/mainfiles ${color1}$alignr Not Mounted
 $endif
-${if_mounted /deb_workdir}${color1}/deb_workdir ${color1}$alignr${fs_used_perc /deb_workdir}% Used
-${fs_used /deb_workdir} / ${fs_size /deb_workdir}
-${color2}${fs_bar 3 /deb_workdir}$else
-${color1}/deb_workdir ${color1}$alignr Not Mounted
-$endif
 
-${voffset 7}${font Play:size=14:bold}${color3}Available Updates ${hr 2}
-${font Play:size=10}${execp ~/startup/scroll.py}
+${voffset 7}${font Play:size=12:bold}${color3}Available Updates ${hr 2}
+${font Play:size=9}${execp ~/startup/scroll.py}
