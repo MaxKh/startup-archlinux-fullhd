@@ -55,10 +55,15 @@ ${color2}${fs_bar 3 /}
 ${font Play:size=10}${color1}/home ${color1}$alignr${fs_used_perc /home}% Used
 ${fs_used /home} / ${fs_size /home}
 ${color2}${fs_bar 3 /home}
-${if_mounted /mainfiles}${color1}/mainfiles ${color1}$alignr${fs_used_perc /mainfiles}% Used
-${fs_used /mainfiles} / ${fs_size /mainfiles}
-${color2}${fs_bar 3 /mainfiles}$else
-${color1}/mainfiles ${color1}$alignr Not Mounted
+${if_mounted /myfiles}${color1}/myfiles ${color1}$alignr${fs_used_perc /myfiles}% Used
+${fs_used /myfiles} / ${fs_size /myfiles}
+${color2}${fs_bar 3 /myfiles}$else
+${color1}/myfiles ${color1}$alignr Not Mounted
+$endif
+${if_mounted /workdir}${color1}/workdir ${color1}$alignr${fs_used_perc /workdir}% Used
+${fs_used /workdir} / ${fs_size /workdir}
+${color2}${fs_bar 3 /workdir}$else
+${color1}/workdir ${color1}$alignr Not Mounted
 $endif
 ${if_mounted /deb_workdir}${color1}/deb_workdir ${color1}$alignr${fs_used_perc /deb_workdir}% Used
 ${fs_used /deb_workdir} / ${fs_size /deb_workdir}
@@ -66,5 +71,5 @@ ${color2}${fs_bar 3 /deb_workdir}$else
 ${color1}/deb_workdir ${color1}$alignr Not Mounted
 $endif
 
-${voffset 7}${font Play:size=14:bold}${color3}Available Updates ${hr 2}
+${voffset 8}${font Play:size=14:bold}${color3}Available Updates ${hr 2}
 ${font Play:size=10}${execp ~/startup/scroll.py}

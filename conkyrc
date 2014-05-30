@@ -47,7 +47,8 @@ TEXT
 ${font Play:size=14:bold}${color3}System Info ${hr 2}
 ${font Play:size=10}${color3}Uptime${alignr}${color1}$uptime
 ${color3}Kernel${alignr}${color1}$kernel
-${color3}IP${alignr}${color1}${addr eth1}
+${color3}IP eth0${alignr}${color1}${addr eth0}
+${color3}IP eth1${alignr}${color1}${addr eth1}
 
 ${font Play:size=14:bold}${color3}CPU Info ${hr 2}
 ${font Play:size=10}${color2}${pre_exec cat /proc/cpuinfo | grep "model name" -m1 | cut -d":" -f2 | cut -d" " -f2- | awk '{print $1,$2}'}${alignr}${pre_exec cat /proc/cpuinfo | grep "model name" -m1 | cut -d":" -f2 | cut -d" " -f2- | awk '{print $3,$4,$5,$7}'}
