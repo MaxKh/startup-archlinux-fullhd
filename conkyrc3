@@ -5,7 +5,6 @@
 
 own_window yes
 own_window_class Conky
-own_window_type desktop
 own_window_type normal
 own_window_argb_visual yes
 own_window_transparent yes
@@ -41,35 +40,25 @@ color3 181a19
 
 TEXT
 ${font Play:size=14:bold}${color3}Memory Usage ${hr 2}
-${font Play:size=10}${color1}RAM$alignr${color1}${memperc}% Used
-${mem /} / ${memmax /}
-${color2}${membar 3.180}
-${color1}SWAP ${color1}$alignr${swapperc}% Used
-${swap /} / ${swapmax /}
-${color2}${swapbar 3.180}
+${font Play:size=10}${color1}RAM$alignr${color1}${mem /} / ${memmax /}
+${color2}${membar 3}
+${color1}SWAP ${color1}$alignr${swap /} / ${swapmax /}
+${color2}${swapbar 3}
 
 ${font Play:size=14:bold}${color3}HDD Space Usage ${hr 2}
-${font Play:size=10}${color1}/${color1}$alignr${fs_used_perc /}% Used
-${fs_used /} / ${fs_size /}
+${font Play:size=10}${color1}/${color1}${alignr}${fs_used /} / ${fs_size /}
 ${color2}${fs_bar 3 /}
-${font Play:size=10}${color1}/home ${color1}$alignr${fs_used_perc /home}% Used
-${fs_used /home} / ${fs_size /home}
+${font Play:size=10}${color1}/home ${color1}$alignr${fs_used /home} / ${fs_size /home}
 ${color2}${fs_bar 3 /home}
-${if_mounted /myfiles}${color1}/myfiles ${color1}$alignr${fs_used_perc /myfiles}% Used
-${fs_used /myfiles} / ${fs_size /myfiles}
+${if_mounted /myfiles}${color1}/myfiles ${color1}$alignr${fs_used /myfiles} / ${fs_size /myfiles}
 ${color2}${fs_bar 3 /myfiles}$else
-${color1}/myfiles ${color1}$alignr Not Mounted
-$endif
-${if_mounted /workdir}${color1}/workdir ${color1}$alignr${fs_used_perc /workdir}% Used
-${fs_used /workdir} / ${fs_size /workdir}
+${color1}/myfiles ${color1}$alignr Not Mounted$endif
+${if_mounted /workdir}${color1}/workdir ${color1}$alignr${fs_used /workdir} / ${fs_size /workdir}
 ${color2}${fs_bar 3 /workdir}$else
-${color1}/workdir ${color1}$alignr Not Mounted
-$endif
-${if_mounted /deb_workdir}${color1}/deb_workdir ${color1}$alignr${fs_used_perc /deb_workdir}% Used
-${fs_used /deb_workdir} / ${fs_size /deb_workdir}
+${color1}/workdir ${color1}$alignr Not Mounted$endif
+${if_mounted /deb_workdir}${color1}/deb_workdir ${color1}$alignr${fs_used /deb_workdir} / ${fs_size /deb_workdir}
 ${color2}${fs_bar 3 /deb_workdir}$else
-${color1}/deb_workdir ${color1}$alignr Not Mounted
-$endif
+${color1}/deb_workdir ${color1}$alignr Not Mounted$endif
 
-${voffset 8}${font Play:size=14:bold}${color3}Available Updates ${hr 2}
+${voffset 12}${font Play:size=14:bold}${color3}Available Updates ${hr 2}
 ${font Play:size=10}${execp ~/startup/scroll.py}

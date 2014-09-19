@@ -5,7 +5,6 @@
 
 own_window yes
 own_window_class Conky
-own_window_type desktop
 own_window_type normal
 own_window_argb_visual yes
 own_window_transparent yes
@@ -41,6 +40,7 @@ color3 181a19
 TEXT
 ${font Play:size=14:bold}${color3}RSS Feeds ${hr 2}
 ${font Play:size=10}${color2}${rss https://www.archlinux.org/feeds/news/ 60 feed_title}
+
 ${color1}${rss https://www.archlinux.org/feeds/news/ 60 item_title 0}
 ${rss https://www.archlinux.org/feeds/news/ 60 item_title 1}
 ${rss https://www.archlinux.org/feeds/news/ 60 item_title 2}
