@@ -67,8 +67,7 @@ ${if_up wlp4s0}${font Play:size=12:bold}${color3}WiFi Activity ${hr 2}
 ${font Play:size=9}${color2}In${tab 53}Out
 ${color3}Tot:${offset 5}${color1}${totaldown wlp4s0}${tab 53}${color3}Tot:${offset 5}${color1}${totalup wlp4s0}
 ${color3}Cur:${offset 6}${color1}${downspeed wlp4s0}${tab 53}${color3}Cur:${offset 6}${color1}${upspeed wlp4s0}
-${color1}${downspeedgraph wlp4s0 25,95 181a19 $template2} $alignr${upspeedgraph wlp4s0 25,95 181a19 $template2}$else
-${font Play:size=12:bold}${color3}Ethernet Activity ${hr 2}
+${color1}${downspeedgraph wlp4s0 25,95 181a19 $template2} $alignr${upspeedgraph wlp4s0 25,95 181a19 $template2}$else${font Play:size=12:bold}${color3}Ethernet Activity ${hr 2}
 ${font Play:size=9}${color2}In${tab 53}Out
 ${color3}Tot:${offset 5}${color1}${totaldown enp2s0}${tab 53}${color3}Tot:${offset 5}${color1}${totalup enp2s0}
 ${color3}Cur:${offset 6}${color1}${downspeed enp2s0}${tab 53}${color3}Cur:${offset 6}${color1}${upspeed enp2s0}
