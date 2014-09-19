@@ -32,18 +32,19 @@ uppercase no
 draw_shades no
 override_utf8_locale yes
 text_buffer_size 2048
+xftfont Play:size=10
 
 color1 dadada
 color2 1793d1
 color3 181a19
 
 TEXT
-${font Play:size=14:bold}${color3}RSS Feeds ${hr 2}
-${font Play:size=10}${color2}${rss https://www.archlinux.org/feeds/news/ 60 feed_title}
+${font Play:size=14:bold}${color3}RSS Feeds ${hr 2}${font}${voffset 8}
+${color2}${rss https://www.archlinux.org/feeds/news/ 60 feed_title}
 
 ${color1}${rss https://www.archlinux.org/feeds/news/ 60 item_title 0}
 ${rss https://www.archlinux.org/feeds/news/ 60 item_title 1}
 ${rss https://www.archlinux.org/feeds/news/ 60 item_title 2}
 
-${font Play:size=14:bold}${color3}Weather ${hr 2}
-${font Play:size=10}${execpi 60 ~/startup/weather2.py -l 4355}
+${font Play:size=14:bold}${color3}Weather ${hr 2}${font}${voffset 8}
+${execpi 60 ~/startup/weather2.py -l 4355}

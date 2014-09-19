@@ -32,7 +32,7 @@ uppercase no
 draw_shades no
 override_utf8_locale yes
 text_buffer_size 2048
-#draw_graph_borders no
+xftfont Play:size=10
 
 color1 dadada
 color2 1793d1
@@ -44,48 +44,48 @@ diskio_avg_samples 3
 net_avg_samples 3
 
 TEXT
-${font Play:size=14:bold}${color3}System Info ${hr 2}
-${font Play:size=10}${color1}Uptime:${alignr}${color1}$uptime
-${color1}Kernel:${alignr}${color1}$kernel
+${font Play:size=14:bold}${color3}System Info ${hr 2}${font}${voffset 8}
+${color1}Uptime:${alignr}${color1}${uptime}
+${color1}Kernel:${alignr}${color1}${kernel}
 ${color1}IP eth0:${alignr}${color1}${addr eth0}
 ${color1}IP eth1:${alignr}${color1}${addr eth1}
 
-${font Play:size=14:bold}${color3}CPU Info ${hr 2}
-${font Play:size=10}${color2}${pre_exec cat /proc/cpuinfo | grep "model name" -m1 | cut -d":" -f2 | cut -d" " -f2- | awk '{print $1,$2}'}${alignr}${pre_exec cat /proc/cpuinfo | grep "model name" -m1 | cut -d":" -f2 | cut -d" " -f2- | awk '{print $3,$4,$5,$7}'}
+${font Play:size=14:bold}${color3}CPU Info ${hr 2}${font}${voffset 8}
+${color2}${pre_exec cat /proc/cpuinfo | grep "model name" -m1 | cut -d":" -f2 | cut -d" " -f2- | awk '{print $1,$2}'}${alignr}${pre_exec cat /proc/cpuinfo | grep "model name" -m1 | cut -d":" -f2 | cut -d" " -f2- | awk '{print $3,$4,$5,$7}'}
 
-${font Play:size=10}${color1}CPU Temp:${alignr}${color1}${exec sensors | grep "CPU Temperature:" | awk '{print $3}'}
+${font Play:size=10}${color1}CPU Temp:${alignr}${color1}${exec sensors | grep "CPU Temperature:" | awk '{print $3}'}${font}
 ${color1}Fan Speed:${alignr}${color1}${exec sensors | grep "CPU FAN Speed" | awk '{print $4}'} RPM
 ${color1}Governor:${alignr}${color1}${exec cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor}
 
-${font Play:size=14:bold}${color3}CPU Activity ${hr 2}
-${font Play:size=10}${color1}Load:${alignr}${color1}${cpu cpu0}%
+${font Play:size=14:bold}${color3}CPU Activity ${hr 2}${font}${voffset 8}
+${color1}Load:${alignr}${color1}${cpu cpu0}%
 ${color1}${cpugraph cpu0 40,250 1793d1 1793d1}
 
-${font Play:size=14:bold}${color3}Ethernet Activity ${hr 2}
-${font Play:size=10}${color1}In:${alignr}${color1}${downspeed eth1} / ${totaldown eth1}
+${font Play:size=14:bold}${color3}Ethernet Activity ${hr 2}${font}${voffset 8}
+${color1}In:${alignr}${color1}${downspeed eth1} / ${totaldown eth1}
 ${color1}${downspeedgraph eth1 40,250  1793d1 1793d1}
-${font Play:size=10}${color1}Out:${alignr}${color1}${upspeed eth1} / ${totalup eth1}
+${color1}Out:${alignr}${color1}${upspeed eth1} / ${totalup eth1}
 ${color1}${upspeedgraph eth1 40,250  1793d1 1793d1}
 
-${font Play:size=14:bold}${color3}HDD Activity ${hr 2}
-${font Play:size=10}${color1}Read:${alignr}${color1}${diskio_read sda} / ${execpi 5 ~/startup/disk_total.py -d sda -m r}
+${font Play:size=14:bold}${color3}HDD Activity ${hr 2}${font}${voffset 8}
+${color1}Read:${alignr}${color1}${diskio_read sda} / ${execpi 5 ~/startup/disk_total.py -d sda -m r}
 ${color1}${diskiograph_read 40,250  1793d1 1793d1}
-${font Play:size=10}${color1}Write:${alignr}${color1}${diskio_write sda} / ${execpi 5 ~/startup/disk_total.py -d sda -m w}
+${color1}Write:${alignr}${color1}${diskio_write sda} / ${execpi 5 ~/startup/disk_total.py -d sda -m w}
 ${color1}${diskiograph_write 40,250  1793d1 1793d1}
 
-${font Play:size=14:bold}${color3}Process Activity ${hr 2}
-${color3}${font Play:size=10:bold}CPU
-${font Play:size=10}${color2}Name${alignr}${offset -1}ID    ${alignr}Usage
-${color1}1. ${top name 1} ${alignr}${if_match ${top cpu 1} < 10}${offset -5}$endif${top pid 1}    ${alignr}${top cpu 1}
-2. ${top name 2} ${alignr}${if_match ${top cpu 2} < 10}${offset -5}$endif${top pid 2}    ${alignr}${top cpu 2}
-3. ${top name 3} ${alignr}${if_match ${top cpu 3} < 10}${offset -5}$endif${top pid 3}    ${alignr}${top cpu 3}
-4. ${top name 4} ${alignr}${if_match ${top cpu 4} < 10}${offset -5}$endif${top pid 4}    ${alignr}${top cpu 4}
-5. ${top name 5} ${alignr}${if_match ${top cpu 5} < 10}${offset -5}$endif${top pid 5}    ${alignr}${top cpu 5}
+${font Play:size=14:bold}${color3}Process Activity ${hr 2}${font}${voffset 8}
+${color3}${font Play:size=10:bold}CPU${font}
+${color2}Name${alignr}${offset -1}ID    ${alignr}Usage
+${color1}1. ${top name 1} ${alignr}${if_match ${top cpu 1} < 10}${offset -5}${else}${offset 0}${endif}${top pid 1}    ${alignr}${top cpu 1}
+2. ${top name 2} ${alignr}${if_match ${top cpu 2} < 10}${offset -5}${else}${offset 0}${endif}${top pid 2}    ${alignr}${top cpu 2}
+3. ${top name 3} ${alignr}${if_match ${top cpu 3} < 10}${offset -5}${else}${offset 0}${endif}${top pid 3}    ${alignr}${top cpu 3}
+4. ${top name 4} ${alignr}${if_match ${top cpu 4} < 10}${offset -5}${else}${offset 0}${endif}${top pid 4}    ${alignr}${top cpu 4}
+5. ${top name 5} ${alignr}${if_match ${top cpu 5} < 10}${offset -5}${else}${offset 0}${endif}${top pid 5}    ${alignr}${top cpu 5}
 
-${font Play:size=10:bold}${color3}Memory
-${font Play:size=10}${color2}Name${alignr}${offset -1}ID    ${alignr}Usage
-${color1}1. ${top_mem name 1} ${alignr}${if_match ${top_mem mem 1} < 10}${offset -5}$endif${top_mem pid 1}    ${alignr}${top_mem mem 1}
-2. ${top_mem name 2} ${alignr}${if_match ${top_mem mem 2} < 10}${offset -5}$endif${top_mem pid 2}    ${alignr}${top_mem mem 2}
-3. ${top_mem name 3} ${alignr}${if_match ${top_mem mem 3} < 10}${offset -5}$endif${top_mem pid 3}    ${alignr}${top_mem mem 3}
-4. ${top_mem name 4} ${alignr}${if_match ${top_mem mem 4} < 10}${offset -5}$endif${top_mem pid 4}    ${alignr}${top_mem mem 4}
-5. ${top_mem name 5} ${alignr}${if_match ${top_mem mem 5} < 10}${offset -5}$endif${top_mem pid 5}    ${alignr}${top_mem mem 5}
+${font Play:size=10:bold}${color3}Memory${font}
+${color2}Name${alignr}${offset -1}ID    ${alignr}Usage
+${color1}1. ${top_mem name 1} ${alignr}${if_match ${top_mem mem 1} < 10}${offset -5}${else}${offset 0}${endif}${top_mem pid 1}    ${alignr}${top_mem mem 1}
+2. ${top_mem name 2} ${alignr}${if_match ${top_mem mem 2} < 10}${offset -5}${else}${offset 0}${endif}${top_mem pid 2}    ${alignr}${top_mem mem 2}
+3. ${top_mem name 3} ${alignr}${if_match ${top_mem mem 3} < 10}${offset -5}${else}${offset 0}${endif}${top_mem pid 3}    ${alignr}${top_mem mem 3}
+4. ${top_mem name 4} ${alignr}${if_match ${top_mem mem 4} < 10}${offset -5}${else}${offset 0}${endif}${top_mem pid 4}    ${alignr}${top_mem mem 4}
+5. ${top_mem name 5} ${alignr}${if_match ${top_mem mem 5} < 10}${offset -5}${else}${offset 0}${endif}${top_mem pid 5}    ${alignr}${top_mem mem 5}
