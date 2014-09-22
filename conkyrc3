@@ -5,7 +5,6 @@
 
 own_window yes
 own_window_class Conky
-own_window_type desktop
 own_window_type normal
 own_window_argb_visual yes
 own_window_transparent yes
@@ -34,29 +33,25 @@ uppercase no
 draw_shades no
 override_utf8_locale yes
 text_buffer_size 2048
+xftfont Play:size=9
 
 color1 dadada
 color2 1793d1
 color3 181a19
 
 TEXT
-${font Play:size=12:bold}${color3}Memory Usage ${hr 2}
-${font Play:size=9}${color1}RAM$alignr${color1}${memperc}% Used
-${mem /} / ${memmax /}
-${color2}${membar 3.180}
-${color1}SWAP ${color1}$alignr${swapperc}% Used
-${swap /} / ${swapmax /}
-${color2}${swapbar 3.180}
+${font Play:size=12:bold}${color3}Memory Usage ${hr 2}${font}${voffset 3}
+${color1}RAM${alignr}${color1}${mem /} / ${memmax /}
+${color2}${membar 3}
+${color1}SWAP ${color1}${alignr}${swap /} / ${swapmax /}
+${color2}${swapbar 3}
 
-${font Play:size=12:bold}${color3}HDD Space Usage ${hr 2}
-${font Play:size=9}${color1}/ ${color1}$alignr${fs_used_perc /}% Used
-${fs_used /} / ${fs_size /}
+${font Play:size=12:bold}${color3}HDD Space Usage ${hr 2}${font}${voffset 3}
+${color1}/${color1}${alignr}${fs_used /} / ${fs_size /}
 ${color2}${fs_bar 3 /}
-${if_mounted /mainfiles}${color1}/mainfiles ${color1}$alignr${fs_used_perc /mainfiles}% Used
-${fs_used /mainfiles} / ${fs_size /mainfiles}
-${color2}${fs_bar 3 /mainfiles}$else
-${color1}/mainfiles ${color1}$alignr Not Mounted
-$endif
+${if_mounted /mainfiles}${color1}/mainfiles ${color1}${alignr}${fs_used /mainfiles} / ${fs_size /mainfiles}
+${color2}${fs_bar 3 /mainfiles}${else}
+${color1}/mainfiles ${alignr}Not Mounted${endif}
 
-${voffset 7}${font Play:size=12:bold}${color3}Available Updates ${hr 2}
-${font Play:size=9}${execp ~/startup/scroll.py}
+${voffset -1}${font Play:size=12:bold}${color3}Available Updates ${hr 2}${font}${voffset 3}
+${execp ~/startup/scroll.py}

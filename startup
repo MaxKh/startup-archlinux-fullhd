@@ -1,19 +1,23 @@
 #sleep 10
 #xrandr --output CRT2 --off --output CRT1 --mode 1280x1024 --pos 1920x0 --rotate normal --output DFP2 --mode 1920x1080 --pos 0x0 --rotate normal --output DFP1 --off
+
 sleep 10
-setxkbmap -layout us,ru -variant ,winkeys -option grp:sclk_toggle
-volumeicon &
+setxkbmap -layout us,ru -variant ,winkeys -option grp:sclk_toggle,grp_led:scroll
 xset b off
-#numlockx on
+numlockx on
+
 # trash icon fix
 xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons/show-trash -s false 2>&1
 xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons/show-trash -s true 2>&1
-light-locker &
+
 xautolock -time 10 -locker "/usr/bin/dm-tool lock" &
 #skype &
-sleep 10
-conky -c ~/startup/conkyrc&
-#conky -c ~/startup/conkyrc2&
-conky -c ~/startup/conkyrc3&
-conky -c ~/startup/conkyrc4&
+#orage &
+volumeicon &
+#x11vnc -nap -wait 50 -noxdamage -passwd PASSWORD -display :0 -forever -o /var/log/x11vnc.log -bg&
+#specto/launch.sh &
+
+conky -d -c ~/startup/conkyrc
+conky -d -c ~/startup/conkyrc3
+conky -d -c ~/startup/conkyrc4
 ~/startup/paconky.py ~/.cache/pacman > ~/.cache/packets
