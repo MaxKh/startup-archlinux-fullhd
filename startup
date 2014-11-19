@@ -20,4 +20,5 @@ volumeicon &
 conky -d -c ~/startup/conkyrc
 conky -d -c ~/startup/conkyrc3
 conky -d -c ~/startup/conkyrc4
+conky -d -c ~/startup/conkyrc5
 ~/startup/paconky.py ~/.cache/pacman > ~/.cache/packets
