@@ -34,10 +34,10 @@ override_utf8_locale yes
 text_buffer_size 2048
 xftfont Play:size=10
 
-color1 dadada
-color2 1793d1
-template2 1793d1
-color3 181a19
+color1 bbbbbb
+color2 08bcd7
+template2 08bcd7
+color3 73a31b
 
 cpu_avg_samples 3
 diskio_avg_samples 3
@@ -59,19 +59,19 @@ ${color1}Governor:${alignr}${color1}${exec cat /sys/devices/system/cpu/cpu0/cpuf
 
 ${font Play:size=14:bold}${color3}CPU Activity ${hr 2}${font}${voffset 8}
 ${color1}Load:${alignr}${color1}${cpu cpu0}%
-${color1}${cpugraph cpu0 40,250 1793d1 1793d1}
+${color1}${cpugraph cpu0 40,250 08bcd7 08bcd7}
 
 ${font Play:size=14:bold}${color3}Ethernet Activity ${hr 2}${font}${voffset 8}
 ${color1}In:${alignr}${color1}${downspeed eth1} / ${totaldown eth1}
-${color1}${downspeedgraph eth1 40,250  1793d1 1793d1}
+${color1}${downspeedgraph eth1 40,250  08bcd7 08bcd7}
 ${color1}Out:${alignr}${color1}${upspeed eth1} / ${totalup eth1}
-${color1}${upspeedgraph eth1 40,250  1793d1 1793d1}
+${color1}${upspeedgraph eth1 40,250  08bcd7 08bcd7}
 
 ${font Play:size=14:bold}${color3}HDD Activity ${hr 2}${font}${voffset 8}
 ${color1}Read:${alignr}${color1}${diskio_read sda} / ${execpi 5 ~/startup/disk_total.py -d sda -m r}
-${color1}${diskiograph_read 40,250  1793d1 1793d1}
+${color1}${diskiograph_read 40,250  08bcd7 08bcd7}
 ${color1}Write:${alignr}${color1}${diskio_write sda} / ${execpi 5 ~/startup/disk_total.py -d sda -m w}
-${color1}${diskiograph_write 40,250  1793d1 1793d1}
+${color1}${diskiograph_write 40,250  08bcd7 08bcd7}
 
 ${font Play:size=14:bold}${color3}Process Activity ${hr 2}${font}${voffset 8}
 ${color3}${font Play:size=10:bold}CPU${font}
