@@ -41,11 +41,4 @@ color3 73a31b
 TEXT
 ${font Play:size=14:bold}${color3}Notes ${hr 2}${font}${voffset 8}
 ${color2}TODO:${color}
-${color1}1. Gn - no Inter-SGSN case - notify in email
-2. Check GGSN SS on allocation
-3. Check SGSN SS on attach
-4. time -> monotonic clock, HB timestamps -> UTC value
-5. Make PFC hash
-
-6. Gi - investigate ip-less solution
-7. Connection Monitoring
+${color1}
