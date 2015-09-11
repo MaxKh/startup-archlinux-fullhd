@@ -1,7 +1,6 @@
 sleep 10
 xset b off
 
-xautolock -time 10 -locker "/usr/bin/dm-tool lock" &
 skype &
 volumeicon &
 

@@ -39,6 +39,8 @@ color2 08bcd7
 color3 73a31b
 
 TEXT
-${font Play:size=14:bold}${color3}Notes ${hr 2}${font}${voffset 8}
-${color2}TODO:${color}
+${font Play:size=14:bold}${color3}Shell Shortcuts${hr 2}${font}${voffset 8}
 ${color1}
+${color2}Alt + F${color1}	Move cursor forward one word on the current line
+${color2}Alt + B${color1}	Move cursor backward one word on the current line
+${color2}Alt + D${color1}	Delete one word after the cursor
