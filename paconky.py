@@ -120,7 +120,7 @@ def display(upgradable_sync, upgradable_aur):
   line = '\n${color1}%s ${alignr}%s'
 
   # The footer at the end of the list.
-  footer = '\n${color1}${hr}\n\n'
+  footer = '\n${color1}${hr}\n \n '
 
   h = config.init_with_config("/etc/pacman.conf")
 
@@ -148,7 +148,8 @@ def display(upgradable_sync, upgradable_aur):
         name, version = "", ""
 
         try:
-          if local.name in h.ignorepkgs:
+          locked_group = set(local.groups) & set(h.ignoregrps)
+          if local.name in h.ignorepkgs or len(locked_group):
             name, version = local.name, str(sync.version)+"${color2}/locked${color}"
           else:
             name, version = local.name, sync.version
@@ -300,7 +301,7 @@ def main(tmp_db_path, sync_cmd=None):
   foreign = dict([(p.name,p) for p in installed])
 
   try:
-    aur = AUR.AUR()
+    aur = AUR.AurRpc()
     aur_pkgs = aur.info(foreign.keys())
     upgradable_aur = list()
     for aur_pkg in aur_pkgs:
@@ -312,7 +313,7 @@ def main(tmp_db_path, sync_cmd=None):
       if pyalpm.vercmp(aur_pkg['Version'], installed_pkg.version) > 0:
         upgradable_aur.append(aur_pkg)
       installed.remove(installed_pkg)
-  except AUR.AURError as e:
+  except AUR.AurError as e:
     sys.stderr.write(str(e))
     sys.exit(1)
   except urllib.error.URLError as e:
