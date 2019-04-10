@@ -18,7 +18,7 @@ conky.config = {
 	use_xft = true,
 --xftalpha 1
 	alignment = 'top_left',
-	gap_x = 1650,
+	gap_x = 1450,
 	gap_y = 935,
 
 -- --- Colours, Sizes, Fonts & Margins --- #

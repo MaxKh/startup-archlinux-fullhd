@@ -15,7 +15,7 @@ conky.config = {
 	double_buffer = true,
 	use_xft = true,
 	alignment = 'top_left',
-	gap_x = 640,
+	gap_x = 440,
 	gap_y = 700,
 
 -- --- Colours, Sizes, Fonts & Margins --- #

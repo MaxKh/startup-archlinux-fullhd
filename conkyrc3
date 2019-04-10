@@ -52,18 +52,12 @@ ${color2}${swapbar 3}
 ${font Play:size=14:bold}${color3}HDD Space Usage ${hr 2}${font}${voffset 8}
 ${color1}/${color1}${alignr}${fs_used /} / ${fs_size /}
 ${color2}${fs_bar 3 /}
-${if_mounted /var}${color1}/var ${color1}${alignr}${fs_used /var} / ${fs_size /var}
-${color2}${fs_bar 3 /var}${else}
-${color1}/var ${alignr}Not Mounted${endif}
 ${color1}/home ${color1}${alignr}${fs_used /home} / ${fs_size /home}
 ${color2}${fs_bar 3 /home}
-${if_mounted /myfiles}${color1}/myfiles ${color1}${alignr}${fs_used /myfiles} / ${fs_size /myfiles}
-${color2}${fs_bar 3 /myfiles}${else}
-${color1}/myfiles ${alignr}Not Mounted${endif}
 ${if_mounted /workdir}${color1}/workdir ${color1}${alignr}${fs_used /workdir} / ${fs_size /workdir}
 ${color2}${fs_bar 3 /workdir}${else}
 ${color1}/workdir ${alignr}Not Mounted${endif}
 
-${voffset 5}${font Play:size=14:bold}${color3}Available Updates ${hr 2}${font}${voffset 8}
+${voffset 8}${font Play:size=14:bold}${color3}Available Updates ${hr 2}${font}${voffset 8}
 ${execp ~/startup/scroll.py}
 ]];
